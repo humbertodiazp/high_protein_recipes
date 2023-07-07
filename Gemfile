@@ -71,4 +71,8 @@ group :test do
   gem "webdrivers"
 end
 
+#Self-Installed Gems
 gem "devise", "~> 4.9"
+
+gem "responders"
+
