@@ -77,7 +77,6 @@ gem "devise", "~> 4.9"
 # Allows Devise to work with Turbo
 gem "responders"
 gem 'omniauth'
-gem "omniauth-rails_csrf_protection"
 #Google Sign Up 
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
