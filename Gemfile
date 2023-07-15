@@ -71,12 +71,18 @@ group :test do
   gem "webdrivers"
 end
 
-#Installed Gems
-
+#Custom 
 gem "devise", "~> 4.9"
 # Allows Devise to work with Turbo
 gem "responders"
+# omniauth allows us to use Google OAuth2 for authentication
 gem 'omniauth'
 #Google Sign Up 
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+#bootstrap 
+
+
+gem "cssbundling-rails", "~> 1.2"
+
+gem "jsbundling-rails", "~> 1.1"
