@@ -16,10 +16,24 @@
     <%= form.text_field :name %>
   </div>
 
+  <h4>Ingredients</h4>
+  <div>
+    <%= form.fields_for :ingredients do |ingredient_form| %>
+      <%= ingredient_form.hidden_field :id %>
+
+      <div>
+        <%= ingredient_form.label :description, style: "display: block" %>
+        <%= ingredient_form.text_field :description %>
+      </div>
+    <% end %>
+  </div>
+
   <div>
     <%= form.label :instructions, style: "display: block" %>
     <%= form.text_field :instructions %>
   </div>
+
+
 
   <div>
     <%= form.submit %>
