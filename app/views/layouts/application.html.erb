@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
   <head>
     <title>HighProteinRecipes</title>
@@ -11,6 +11,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: "shared/navbar" %>
+    
+    <div class="container ">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
