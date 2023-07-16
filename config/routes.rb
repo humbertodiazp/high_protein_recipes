@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   root 'recipes#home'
   
-  resources :recipes do
-    resources :ingredients
+  resources :recipes 
+  
+  
+  resources :ingredients, only: [], param: :index do
+    member do
+      delete '(id)' => 'ingredients#destroy', as: ""
+    end
   end
 
   devise_for :users,
