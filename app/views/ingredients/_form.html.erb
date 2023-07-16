@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "ingredient_#{form.index}" do %>
+<%= form.hidden_field :id %>
+
+<div>
+  <%= form.label :description, style: "display: block" %>
+  <%= form.text_field :description %>
+</div>
+<% end %>
