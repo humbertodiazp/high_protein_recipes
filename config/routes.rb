@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :recipes
   root 'recipes#home'
+  
+  resources :recipes do
+    resources :ingredients
+  end
+
   devise_for :users,
               controllers: {
                 registrations: 'users/registrations',
