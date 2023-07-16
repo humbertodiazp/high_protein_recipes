@@ -21,7 +21,13 @@
     <%= form.fields_for :ingredients do |ingredient_form| %>
       <%= render "ingredients/form", form: ingredient_form %>
     <% end %>
-  </div>
+  </div> 
+
+  <%= form.submit "Add ingredient", 
+      formaction: ingredient_path(@recipe.ingredients.size), 
+      formmethod: :post, 
+      formnovalidate: true, 
+      id: "add-ingredient" %>
 
   <div>
     <%= form.label :instructions, style: "display: block" %>
