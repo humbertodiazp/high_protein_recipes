@@ -1,8 +1,8 @@
 <%= fields model: @recipe do |form| %>
-  <%= form.fields_for :ingredients, child_index: params[:index] do |ingredients_form| %>
-    <%= turbo_frame_tag "ingredient_#{ingredients_form.index}" do %>
-        <%= ingredients_form.hidden_field :id, value: params[:id] %>
-        <%= ingredients_form.hidden_field :_destroy, value: true %>
+  <%= form.fields_for :ingredients, child_index: params[:index] do |ingredient_form| %>
+    <%= turbo_frame_tag "ingredient_#{ingredient_form.index}" do %>
+        <%= ingredient_form.hidden_field :id, value: params[:id] %>
+        <%= ingredient_form.hidden_field :_destroy, value: true %>
     <% end %>
   <% end %>
 <% end %>
