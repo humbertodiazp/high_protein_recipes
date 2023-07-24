@@ -1,0 +1,22 @@
+<%= turbo_frame_tag "ingredient_#{form.index}" do %>
+  <%= form.hidden_field :id %>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+    <div>
+    <%= form.label :quantity, style: "display: block" %>
+    <%= form.text_field :quantity %>
+  </div>
+    <div>
+    <%= form.label :measurement, style: "display: block" %>
+    <%= form.text_field :measurement %>
+  </div>
+  <%= form.submit "destroy ingredient", 
+        formaction: ingredient_path(form.index, form.object.id), 
+        formmethod: :delete, 
+        formnovalidate: true, 
+        data: { turbo_frame: "ingredient_#{form.index}" } %>
+<% end %>
+
