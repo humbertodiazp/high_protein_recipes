@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
-  root 'recipes#home'
+  root 'recipes#index'
   devise_for :users,
               controllers: {
                 registrations: 'users/registrations',
                 sessions: 'users/sessions',
                 omniauth_callbacks: 'users/omniauth_callbacks'
                 }
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+  resources :recipes  
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-end
+  resources :ingredients, only: [], param: :index do
+    member do
+      delete '(:id)' => "ingredients#destroy", as: ""
+      post '/' => "ingredients#create"
+    end
+  end
+end 
