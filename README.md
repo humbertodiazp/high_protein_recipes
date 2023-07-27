@@ -1,24 +1,5 @@
-# README
+A website for gym rat's everywhere.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Find recipes that will help you hit your pretein intake goals, while staying under caloric constraints.
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
