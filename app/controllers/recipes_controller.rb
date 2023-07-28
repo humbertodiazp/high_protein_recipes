@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create]
+
 
   respond_to :html
 
@@ -20,7 +22,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.new(recipe_params)
+    # @recipe.ingredient_id = @ingredient.id
     @recipe.save
     respond_with(@recipe)
   end
