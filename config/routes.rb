@@ -8,6 +8,7 @@ Rails.application.routes.draw do
                 }
   
   resources :recipes  
+  resources :shopping_lists
 
   resources :ingredients, only: [], param: :index do
     member do
