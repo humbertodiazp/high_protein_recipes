@@ -6,8 +6,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :email 
   has_many :recipes
   has_many :shopping_lists
-
-
+  
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email #assuming the user model has an email
