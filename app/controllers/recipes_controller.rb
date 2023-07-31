@@ -10,11 +10,14 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe = Recipe.find(params[:id])
+    respond_with(@recipe)
   end
 
   
   def new
     @recipe = Recipe.new(ingredients: [Ingredient.new])
+    respond_with(@recipe)
   end
   
 
@@ -23,10 +26,13 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
-    # @recipe.ingredient_id = @ingredient.id
-    @recipe.save
-    respond_with(@recipe)
-  end
+
+    if @recipe.save
+      redirect_to @recipe, notice: 'Recipe was successfully created.'
+    else
+      render :new
+    end
+      end
 
   def update
     @recipe.update(recipe_params)
