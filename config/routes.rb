@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   resources :recipes  
   resources :shopping_lists
+  resources :shopping_list_items
+  resources :users, only: [:show]
 
   resources :ingredients, only: [], param: :index do
     member do
