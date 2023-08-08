@@ -1,15 +1,22 @@
-<p style="color: green"><%= notice %></p>
-<div id="recipes-container">
-  <h1>Recipes</h1>
+<main >
+  <div class="max-w-prose space-y-4">
+    <p style="color: green"><%= notice %></p>
+    <div id="recipes-container" class="flex-column justify-center " >
 
-  <div id="recipes">
-    <% @recipes.each do |recipe| %>
-      <%= render recipe %>
-      <p>
-        <%= link_to "Show this recipe", recipe %>
-      </p>
-    <% end %>
+    <div class="pt9 mb-lg-12 text-2xl ">
+      <h1 >Recipes</h1>
+    </div>
+
+      <div id="recipes">
+        <% @recipes.each do |recipe| %>
+          <%= render recipe %>
+          <p class="text-base font-light leading-relaxed mt-0 mb-4 text-pink-800">
+            <%= link_to "Show this recipe", recipe, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+
+    <%= link_to "New recipe", new_recipe_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
   </div>
-</div >
-
-<%= link_to "New recipe", new_recipe_path %>
+</main>
