@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-
+<div id="recipes-container">
 <%= render @recipe %>
  <p>
     <strong>Ingredients:</strong>
@@ -7,8 +7,10 @@
   </p>
 
 <div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
+  <%= link_to 'Add to Shopping List', new_shopping_list_path(recipe_id: @recipe.id), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded", 'data-turbo-frame': 'sidebar' %>
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %> |
+  <%= link_to "Back to recipes", recipes_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  <%= link_to "Destroy this recipe", @recipe, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",  method: :delete %>
+</div>
 </div>
