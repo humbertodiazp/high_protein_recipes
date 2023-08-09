@@ -1,0 +1,28 @@
+<aside class="flex w-72 h-full sm:w-1/5 bg-blue-500 min-h-screen" data-sidebar-target="sidebarContainer" data-expanded="1" data-controller="sidebar">
+  <div >
+    View your shopping list:
+    <% if @shopping_list %>
+    <div>
+      <h1><%= @shopping_list.name %></h1>
+        <h2>Ingredients:</h2>
+        <ul>
+          <% @shopping_list.shopping_list_items.each do |item| %>
+            <li><%= item.description %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <% if @other_shopping_lists %>
+      <div>
+        <h3>Other Shopping Lists</h3>
+        <ul>
+          <% @other_shopping_lists.each do |list| %>
+            <li><%= link_to list.name, shopping_list_path(list) %></li>
+          <% end %>
+        </ul>
+    </div>
+    <% end %>
+  </div>
+</aside>
+
