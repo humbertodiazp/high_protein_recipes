@@ -11,34 +11,44 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+<form>
+  <div class="space-y-12">
+    <div class="border-b border-gray-900/10 pb-12"> 
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+        <%= form.label :name, class:"block text-sm font-medium leading-6 text-gray-900" %>
+          <div class="mt-2">
+            <div >
+              <%= form.text_field :name, class:"flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md" %>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600">Provide a unique title to your recipe.</p>
+          </div>
+      </div>
+
+        <div class="col-span-full">
+          <%= form.label :instructions, class:"block text-sm font-medium leading-6 text-gray-900" %>
+            <div class="mt-2">
+              <%= form.text_area :instructions, rows:"8",  class:"block w-2/3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+            </div>
+          <p class="mt-3 text-sm leading-6 text-gray-600">Give detailed instructions on how to prepare your recipe.</p>
+        </div>
+
+      <%# turbo form %>
+    <h4 class="block text-md font-medium leading-6 text-gray-900">Ingredients</h4>
+    <div id="ingredients">
+      <%= form.fields_for :ingredients do |ingredient_form| %>
+        <%= render "ingredients/form", form: ingredient_form %>
+      <% end %>
+    </div>
+
+  <%# end turbo form %> 
+
   </div>
-
-  <div>
-    <%= form.label :instructions, style: "display: block" %>
-    <%= form.text_area :instructions %>
+        <div>
+        <%= form.submit "Save Recipe",
+        class: "bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" %>
+        </div>
+    </div>  
   </div>
-
-  <%# turbo form %>
-<h4>Ingredients</h4>
-<div id="ingredients">
-  <%= form.fields_for :ingredients do |ingredient_form| %>
-    <%= render "ingredients/form", form: ingredient_form %>
-  <% end %>
-</div>
-
-<%= form.submit "Add ingredient", 
-      formaction: ingredient_path(@recipe.ingredients.size), 
-      formmethod: :post, 
-      formnovalidate: true, 
-      id: "add-ingredient" %>
-
-
-  <%# end turbo form %>
-
-  <div>
-    <%= form.submit %>
-  </div>
+</form>
 <% end %>
