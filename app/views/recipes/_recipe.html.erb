@@ -1,12 +1,50 @@
-<div id="<%= dom_id recipe %>">
-  <p>
+<%# <div id="<%= dom_id recipe %>
+  <%# <p>
     <strong>Name:</strong>
     <%= recipe.name %>
-  </p>
+  <%# </p>
 
   <p>
     <strong>Instructions:</strong>
     <%= recipe.instructions %>
-  </p>
+  <%# </p>   %>
 
+</div>
+<div>
+  <div class=" flex flex-col bg-white shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3 ">
+      
+
+
+        <strong><%= link_to recipe.user.full_name, recipe.user %></strong>
+      </div>
+      <p class="text-xs text-gray-800 dark:text-gray-200 justify-self-end"><%= time_ago_in_words(recipe.created_at) %> ago</p>
+    </div>
+
+   <p class="text-gray-800 dark:text-gray-200 my-3 break-words"><%= recipe.name %><p>
+
+    <div class='self-center mb-2'>
+      <%# <%= image_tag post.image.variant(:display), class: 'rounded-md' if post.image.attached? %>
+    </div>
+
+    <div class="flex justify-between items-center">
+        <div class="flex gap-x-3">
+            <div class="flex justify-center gap-x-1">
+          
+            </div>
+        </div>
+
+         <div class="flex gap-x-3">
+            <% if current_user == recipe.user %>
+                <%= link_to edit_recipe_path(recipe) do %>
+                  <ion-icon id=<%="edit#{recipe.id}"%> class="edit text-xl" name="create-outline"></ion-icon>
+                <% end %>
+                <%= button_to post, method: :delete do %>
+                  <ion-icon id=<%="trash#{recipe.id}"%> class="trash text-xl" name="trash-outline"></ion-icon>
+                <% end %>
+            <% end %>
+      </div>
+    </div>
+  </div>
 </div>
