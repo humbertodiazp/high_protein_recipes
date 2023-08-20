@@ -1,13 +1,14 @@
 
+
+
+
 <div>
   <%content_for(:page_title, "High Protein Recipes") %>
 
         <div>
           <% @recipes.each do |recipe| %>
             <%= render recipe %>
-            <p>
-              <%= link_to "Show this recipe", recipe, class: "flex justify-between items-center mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-            </p>
+
           <% end %>
         </div>
     </div>
