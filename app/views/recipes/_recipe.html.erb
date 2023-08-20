@@ -1,28 +1,17 @@
-<%# <div id="<%= dom_id recipe %>
-  <%# <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  <%# </p>
 
-  <p>
-    <strong>Instructions:</strong>
-    <%= recipe.instructions %>
-  <%# </p>   %>
-
-</div>
 <div>
-  <div class=" flex flex-col bg-white shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
+  <div class=" flex flex-col bg-white w-2/3 shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3 ">
       
 
 
-        <strong><%= link_to recipe.user.full_name, recipe.user %></strong>
+        <strong class="dark:text-gray-300"><%= link_to recipe.user.full_name, recipe.user %></strong>
       </div>
-      <p class="text-xs text-gray-800 dark:text-gray-200 justify-self-end"><%= time_ago_in_words(recipe.created_at) %> ago</p>
+      <p class="text-xs text-gray-800 dark:text-gray-300 justify-self-end"><%= time_ago_in_words(recipe.created_at) %> ago</p>
     </div>
 
-   <p class="text-gray-800 dark:text-gray-200 my-3 break-words"><%= recipe.name %><p>
+    <p class="text-gray-800 dark:text-gray-800 my-3 break-words"><%= recipe.name %><strong>
 
     <div class='self-center mb-2'>
       <%# <%= image_tag post.image.variant(:display), class: 'rounded-md' if post.image.attached? %>
@@ -33,17 +22,26 @@
             <div class="flex justify-center gap-x-1">
           
             </div>
-        </div>
+    </div>
 
-         <div class="flex gap-x-3">
-            <% if current_user == recipe.user %>
-                <%= link_to edit_recipe_path(recipe) do %>
-                  <ion-icon id=<%="edit#{recipe.id}"%> class="edit text-xl" name="create-outline"></ion-icon>
-                <% end %>
-                <%= button_to post, method: :delete do %>
-                  <ion-icon id=<%="trash#{recipe.id}"%> class="trash text-xl" name="trash-outline"></ion-icon>
-                <% end %>
-            <% end %>
+    <div class="flex gap-x-3">
+      <p class="flex justify-between items-center mt-3 ">
+        <%= link_to "Show this recipe", recipe %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+          </svg>
+
+      </p>
+
+
+      <% if current_user == recipe.user %>
+          <%= link_to edit_recipe_path(recipe) do %>
+            <ion-icon id=<%="edit#{recipe.id}"%> class="edit text-xl" name="create-outline"></ion-icon>
+          <% end %>
+          <%= button_to post, method: :delete do %>
+            <ion-icon id=<%="trash#{recipe.id}"%> class="trash text-xl" name="trash-outline"></ion-icon>
+          <% end %>
+      <% end %>
       </div>
     </div>
   </div>
