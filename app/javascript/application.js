@@ -6,3 +6,5 @@ import "./controllers"
 
 // Initialization for ES Users
 // Initialization for ES Users
+import "trix"
+import "@rails/actiontext"
