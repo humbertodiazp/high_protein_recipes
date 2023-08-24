@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full bg-gray-100">
+<html class="h-full bg-blue-100">
 <head>
   <title>HighProteinRecipes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,11 @@
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+              <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+                <svg class="mx-auto h-10 w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="1.4169999999999998 8.164 29.166000000000004 15.671999999999999">
+                  <path d="M23.184 8.164c-1.294 0-2.366 2.826-2.573 6.531h-9.22c-0.208-3.705-1.279-6.531-2.574-6.531H7.538C8.809 9.513 9.47 12.768 9.47 16c0 3.231-0.661 6.486-1.932 7.836h1.279c1.294 0 2.366-2.826 2.573-6.53h9.221c0.208 3.704 1.279 6.53 2.573 6.53 1.442 0 2.611-3.509 2.611-7.836C25.795 11.672 24.626 8.164 23.184 8.164zM28.407 9.47h-1.17c-0.413-0.824-0.909-1.306-1.442-1.306h-1.279c1.271 1.349 1.933 4.604 1.933 7.836 0 3.231-0.661 6.486-1.933 7.836h1.279c0.533 0 1.029-0.482 1.442-1.306h1.17c1.201 0 2.176-2.924 2.176-6.53S29.608 9.47 28.407 9.47zM3.593 9.47c-1.201 0-2.176 2.924-2.176 6.53s0.975 6.53 2.176 6.53c1.203 0 2.177-2.924 2.177-6.53S4.795 9.47 3.593 9.47zM3.593 17.306c-0.361 0-0.653-0.584-0.653-1.306 0-0.721 0.292-1.306 0.653-1.306S4.246 15.279 4.246 16C4.246 16.722 3.954 17.306 3.593 17.306zM6.205 8.164c-0.517 0-0.998 0.459-1.402 1.238 1.104 1.179 1.62 3.962 1.62 6.598 0 2.637-0.515 5.419-1.62 6.598 0.404 0.778 0.885 1.238 1.402 1.238 1.442 0 2.612-3.509 2.612-7.836C8.817 11.672 7.647 8.164 6.205 8.164z" fill="currentColor"></path>
+                </svg>
+              </div>
             </div>
 
             <div class="hidden md:block">
@@ -30,7 +34,11 @@
                   </li>
                   <!-- Team link -->
                   <li class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-                    <%= link_to "Sign in", new_user_session_url %>
+                    <% if user_signed_in? %>
+                      <%= link_to "Log Out", destroy_user_session_path, data:{ turbo_method: :delete } %>
+                    <%else%>
+                      <%= link_to "Log In", new_user_session_url %>
+                    <%end%>
                   </li>
                   <!-- Projects link -->
                   <li class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
