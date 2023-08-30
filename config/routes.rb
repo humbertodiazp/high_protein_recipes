@@ -7,7 +7,10 @@ Rails.application.routes.draw do
                 omniauth_callbacks: 'users/omniauth_callbacks'
                 }
   
-  resources :recipes  
+  resources :recipes do 
+    resources :comments, module: :recipes
+  end
+  resources :comments
   resources :shopping_lists
   resources :shopping_list_items
   resources :users, only: [:show]
