@@ -1,16 +1,39 @@
-<p style="color: green"><%= notice %></p>
-<div id="recipes-container">
-<%= render @recipe %>
- <p>
-    <strong>Ingredients:</strong>
-    <%= @recipe.ingredients.map(&:description).join(", ") %>
-  </p>
 
 <div>
-  <%= link_to 'Add to Shopping List', new_shopping_list_path(recipe_id: @recipe.id), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded", 'data-turbo-frame': 'sidebar' %>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %> |
-  <%= link_to "Back to recipes", recipes_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  <%= render @recipe %>
+  <div class=" bg-white-800  w-2/3 shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
+  
+    
+    <p class="text-gray-800 dark:text-gray-600 my-3 break-words">
+        <strong>Ingredients:</strong>
+        <%= @recipe.ingredients.map(&:description).join(", ") %>
+    </p>
 
-  <%= link_to "Destroy this recipe", @recipe, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",  method: :delete %>
-</div>
+    <p class=" text-sm font-normal text-black-400 my-3 break-words">
+        <strong>Instructions:</strong>
+        <%= @recipe.instructions %>
+    </p>
+
+  
+      <%= link_to 'Add to Shopping List', new_shopping_list_path(recipe_id: @recipe.id), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded", 'data-turbo-frame': 'sidebar' %>
+      <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %> |
+      <%= link_to "Back to recipes", recipes_path, class: "w-24 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+
+      <%= link_to "Destroy this recipe", @recipe, class: "w-24 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",  method: :delete %>
+  
+  </div>
+  <div class=" bg-white-800  w-2/3 shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
+
+    <h2 class="text-gray-800 dark:text-gray-600 my-3 break-words">
+      Comments
+    </h2>
+    <% if user_signed_in? %>
+      <%= render partial: "comments/form", locals:{comment: Comment.new, commentable: @recipe} %>
+      <% else %>
+        <p class="text-gray-800 dark:text-gray-600 my-3 break-words">
+          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %> to comment 
+        </p>
+    <% end %>
+    <%= render @recipe.comments %>
+  </div>
 </div>
