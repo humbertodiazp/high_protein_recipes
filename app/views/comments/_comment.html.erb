@@ -1,0 +1,29 @@
+<%=turbo_frame_tag comment do %>
+<div class="=flex bg-white-800  w-2/3 shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
+    <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3 ">
+        <strong class="text-xs dark:text-gray-300"><%= link_to comment.user.full_name, comment.user %></strong>
+        </div>
+        <p class="text-xs text-gray-800 dark:text-gray-300 justify-self-end"><%= time_ago_in_words(comment.created_at) %> ago</p>
+    </div>
+
+    <div class="text-xs items-center gap-3 ">
+        <div class="flex items-end flex-gap-3">
+            <%= comment.body %>
+        </div>
+        <p class=" items-center mt-3 ">
+            <div class="">
+                <div class="flex items-center gap-3 ">
+                    <%= link_to edit_comment_path(comment), class:'mx-1' %>
+                    <%= button_to "Delete", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" } %> 
+
+            </div>
+        </p>
+ 
+    </div>
+        
+    </div> 
+</div>
+<%end%>
+
+
