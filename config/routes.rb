@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   resources :recipes do 
     resources :comments, module: :recipes
   end
-  resources :comments
+
+  resources :comments do
+    resources :comments, module: :comments
+  end
+  
   resources :shopping_lists
   resources :shopping_list_items
   resources :users, only: [:show]
