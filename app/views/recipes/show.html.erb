@@ -24,7 +24,7 @@
         <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %> |
         <%= link_to "Back to recipes", recipes_path, class: "w-24 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 
-        <%= link_to "Destroy this recipe", @recipe, class: "w-24 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",  method: :delete %>
+        <%= button_to "Delete this recipe", recipe_path(@recipe), class: "w-24 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",  method: :delete %>
   </div>
       
   <div class="max-h-fit w-2/3 overflow-y-auto bg-white-800  shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
@@ -39,10 +39,10 @@
           </p>
       <% end %>
       
-        <%=turbo_stream_from @recipe, :comments%>
+      <%=turbo_stream_from @recipe, :comments%>
       <div>
         <%= tag.div id: "#{dom_id(@recipe)}_comments" do %>
-          <%= render @recipe.comments %>
+          <%= render partial: "comments/comment_with_replies", collection: @recipe.comments, as: :comment%>
         <% end %>
       </div>
   </div>
