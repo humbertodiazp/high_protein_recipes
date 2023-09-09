@@ -9,16 +9,9 @@
 
 
     <div class="min-h-full">
+
         <div class="py-10">
-          <% if content_for?(:page_title) %>
-          <header>
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">
-                <%= yield(:page_title) %>
-              </h1>
-            </div>
-          </header>
-          <% end %>
+
 
           <main class="w-full pt-[60px] md:pt-[0px] md:pl-[240px]">
           
@@ -26,6 +19,7 @@
               <p class="notice"><%= notice %></p>
               <p class="alert"><%= alert %></p>
               <div class=" grid-none lg:grid lg:grid-cols-[68%_32%]">
+              
                 <%= yield %>
 
                 <%= render 'shared/rightbar'%>
