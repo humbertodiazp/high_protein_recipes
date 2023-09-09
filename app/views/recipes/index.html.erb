@@ -3,10 +3,17 @@
 
 
 <div>
-  <%content_for(:page_title, "High Protein Recipes") %>
-
-        <div>
+  <%# <%content_for(:page_title, "High Protein Recipes") %> 
+  <header>
+    <div class="mx-auto mb-10 max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">
+        High Protein Recipes
+      </h1>
+    </div>
+  </header>        
+  <div>
           <% @recipes.each do |recipe| %>
+          
             <%= render recipe %>
 
           <% end %>
