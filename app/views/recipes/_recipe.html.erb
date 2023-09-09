@@ -1,6 +1,6 @@
 
 <div>
-  <div class=" flex flex-col bg-orange-800 opacity-80 w-2/3 shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
+  <div class=" flex flex-col bg-white-800  w-2/3  shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3 ">
       
@@ -18,12 +18,12 @@
     </div>
 
     <div class="flex justify-between items-center">
-        <div class="flex gap-x-3">
-            <div class="flex justify-center gap-x-1">
-          
+        <div class="flex  gap-x-3">
+            <div class="flex  justify-center gap-x-1">
+  
             </div>
     </div>
-
+    
     <div class="flex gap-x-3">
 
       <p class="flex justify-between items-center mt-3 ">
@@ -43,6 +43,7 @@
           </svg>
         <% end %>
         <p class="text-xs text-gray-800"> 
+        <span class="text-xs text-gray-800 "><%= recipe.comments.count %></span>
         Comments
         </p>
         <div>
@@ -66,18 +67,6 @@
           </div>
         </div>
       </p>
-
-
-
-
-      <% if current_user == recipe.user %>
-          <%= link_to edit_recipe_path(recipe) do %>
-            <ion-icon id=<%="edit#{recipe.id}"%> class="edit text-xl" name="create-outline"></ion-icon>
-          <% end %>
-          <%= button_to recipe, method: :delete do %>
-            <ion-icon id=<%="trash#{recipe.id}"%> class="trash text-xl" name="trash-outline"></ion-icon>
-          <% end %>
-      <% end %>
       </div>
     </div>
   </div>
