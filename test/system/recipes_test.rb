@@ -14,7 +14,7 @@ class RecipesTest < ApplicationSystemTestCase
     visit recipes_url
     click_on "New recipe"
 
-    fill_in "Instructions", with: @recipe.instructions
+    fill_in "Instructions", with: @recipe.content
     fill_in "Name", with: @recipe.name
     click_on "Create Recipe"
 
@@ -26,7 +26,7 @@ class RecipesTest < ApplicationSystemTestCase
     visit recipe_url(@recipe)
     click_on "Edit this recipe", match: :first
 
-    fill_in "Instructions", with: @recipe.instructions
+    fill_in "Instructions", with: @recipe.content
     fill_in "Name", with: @recipe.name
     click_on "Update Recipe"
 
