@@ -7,8 +7,12 @@ Rails.application.routes.draw do
                 omniauth_callbacks: 'users/omniauth_callbacks'
                 }
   
+  
+
+  
   resources :recipes do 
     resources :comments, module: :recipes
+    resource :like, module: :recipes
   end
 
   resources :comments do
