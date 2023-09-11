@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_28_232606) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_10_210905) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -70,12 +70,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_232606) do
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id"], name: "index_likes_on_record"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "name"
-    t.text "instructions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.integer "likes_count", default: 0
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -117,6 +127,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_232606) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "users"
   add_foreign_key "ingredients", "recipes"
+  add_foreign_key "likes", "users"
   add_foreign_key "recipes", "users"
   add_foreign_key "shopping_list_items", "ingredients"
   add_foreign_key "shopping_list_items", "shopping_lists"
