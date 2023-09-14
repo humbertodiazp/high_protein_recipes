@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
     def show
         @user = User.find(params[:id])
         @profile = @user.profile
+        @recipes = @user.recipes
 
     end
 
