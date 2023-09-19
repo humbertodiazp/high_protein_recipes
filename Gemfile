@@ -51,7 +51,10 @@ gem "image_processing", "~> 1.2"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'rspec-rails', '~> 6.0.0'
 end
+
+
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -85,3 +88,4 @@ gem "tailwindcss-rails", "~> 2.0"
 
 gem "jsbundling-rails", "~> 1.1"
 
+gem "letter_opener_web"
