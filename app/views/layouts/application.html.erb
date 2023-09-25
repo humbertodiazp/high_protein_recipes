@@ -1,34 +1,21 @@
 <!DOCTYPE html>
-<html class="poppins h-full bg-white-100">
+<html class="poppins">
   <head>
       <%= render 'shared/head' %>
-  </head>
+  </head> 
 
-  <body class='poppins bg-lm-1 text-dm-1 dark:bg-dm-1 dark:text-lm-1 h-screen w-screen' > 
-    <%= render 'shared/navbar' %>
-
-
-    <div class="min-h-full">
-
-        <div class="py-10">
-
-
-          <main class="w-full pt-[60px] md:pt-[0px] md:pl-[240px]">
-          
-            <div class="w-full px-5 my-0 md:my-4">
-              <p class="notice"><%= notice %></p>
-              <p class="alert"><%= alert %></p>
-              <div class=" grid-none lg:grid lg:grid-cols-[68%_32%]">
+  <body class='poppins bg-lm-1 text-dm-1 dark:bg-dm-1 dark:text-lm-1 h-screen w-screen  bg-gray-50' >
+    <%= render 'shared/nav' %>
+    <div class="w-full <%= main_layout %>">
+      <div class="w-full <%= right_content %>">
+        <%= render 'shared/flash' %>
+        <div class='<%= grid_layout %>'>
+          <%= yield %>
+          <%= render 'shared/lists' %>
               
-                <%= yield %>
-
-                <%= render 'shared/rightbar'%>
-              </div>
-
-            </div>
-          </main>
-
-        </div>
-      
+          <%= turbo_frame_tag "modal" %>
+        </div> 
+      </div>
+    </div>
   </body>
 </html>
