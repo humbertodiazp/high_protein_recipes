@@ -33,10 +33,12 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.global_fixtures = :all
-  
-  
-  config.include ActiveJob :: TestHelper
-  # config.include ActionMailbox :: TestHelper
+
+  config.include ActiveJob::TestHelper
+  # config.include ActionMailbox::TestHelper
+  # config.include Devise::Test::IntegrationHelpers, type: :feature
+  # config.include Devise::Test::ControllerHelpers, type: :controller
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
@@ -57,11 +59,12 @@ RSpec.configure do |config|
   #     end
   #
   # The different available types are documented in the features, such as in
-  # https://rspec.info/features/6-0/rspec-rails
+  # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.include FactoryBot::Syntax::Methods
 end
