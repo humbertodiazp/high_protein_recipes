@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html class="poppins">
+    <head>
+        <%= render 'shared/head' %>
+    </head> 
+
+    <body class='poppins bg-lm-1 text-dm-1 dark:bg-dm-1 dark:text-lm-1 h-screen w-screen  bg-gray-50' >
+        <%= render 'shared/nav' %>
+        <div class="w-full <%= main_layout %>">
+            <div class="w-full <%= right_content %>">
+                <%= render 'shared/flash' %>
+                <div class=''>
+                <%= yield %>
+                    
+                </div> 
+            </div>
+        </div>
+    </body>
+</html>
