@@ -1,0 +1,7 @@
+<%= tag.div id: dom_id(recipe, :likes) do  %>
+    <div class='flex justify-between gap-1 text-xs text-gray-800'>
+        <%= recipe.likes_count %>
+        <%= button_to like_button_text(recipe), recipe_like_path(recipe),  method: :patch  %> 
+        
+    </div>
+<% end %>
