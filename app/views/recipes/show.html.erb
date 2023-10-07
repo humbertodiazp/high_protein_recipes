@@ -26,8 +26,11 @@
   </div>
 
   <%# recipe name %>
-  <div class="flex mb-10 font-bold text-2xl font-sanchez" >
-    <%= @recipe.name %>
+  <div class="flex flex-col mb-10  " >
+    <div class="flex font-bold text-2xl  font-sanchez">
+      <%= @recipe.name %>
+    </div>
+    <div class="flex text-sm ml-1 text-gray-400 gap-1 "> Created by: <%= link_to @recipe.user.full_name, user_path(@recipe.user)  %> </div>
   </div>
 
   <%# image and ingredients  %>
@@ -71,7 +74,6 @@
         <div>
 
 
-              <%= link_to 'Add to Shopping List', new_shopping_list_path(recipe_id: @recipe.id), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded", 'data-turbo-frame': 'sidebar' %>
               <%= link_to "Back to recipes", recipes_path, class: "w-24 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
               <%= button_to "Delete this recipe", recipe_path(@recipe), class: "w-24 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",  method: :delete %>
         </div>
