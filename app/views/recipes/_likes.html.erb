@@ -1,7 +1,6 @@
-<%= tag.div id: dom_id(recipe, :likes) do  %>
-    <div class='flex justify-between gap-1 text-xs text-gray-800'>
+<%= tag.div class: 'flex text-xs text-gray-800', id: dom_id(recipe, :likes)   do  %>
         <%= recipe.likes_count %>
-        <%= button_to like_button_text(recipe), recipe_like_path(recipe),  method: :patch  %> 
-        
-    </div>
+        <div class="flex">
+            <%= button_to like_button_text(recipe),  recipe_like_path(recipe),  method: :patch  %> 
+        </div>
 <% end %>
