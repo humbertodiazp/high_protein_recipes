@@ -1,6 +1,6 @@
 <div class=" flex flex-col justify-between bg-white w-10/12  shadow-md dark:bg-dm-2 dark:shad  rounded-[15px] duration-500 my-10 py-3 px-4 ">
   <div class="flex justify-between">
-      <strong class="text-xs dark:text-gray-300"><%= link_to recipe.user.full_name, current_user  %></strong>
+      <strong class="text-xs dark:text-gray-300"><%= link_to recipe.user.full_name, user_path(recipe.user)  %></strong>
       <p class="text-xs text-gray-800 dark:text-gray-300 justify-self-end"><%= time_ago_in_words(recipe.created_at) %> ago</p>
   </div>
 
