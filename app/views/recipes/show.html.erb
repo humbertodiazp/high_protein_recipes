@@ -20,14 +20,16 @@
         </p>
       </div>
       <div class="flex ml-4 hover ">
+      <% if current_user == @recipe.user %> 
         <%= link_to "Edit", edit_recipe_path(@recipe), class: " hover:text-gray-600 text-gray-400  "%>
+      <% end %>
       </div>
     </div>
   </div>
 
   <%# recipe name %>
   <div class="flex flex-col mb-10  " >
-    <div class="flex font-bold text-2xl  font-sanchez">
+    <div class="flex font-bold text-4xl  font-sanchez">
       <%= @recipe.name %>
     </div>
     <div class="flex text-sm ml-1 text-gray-400 gap-1 "> Created by: <%= link_to @recipe.user.full_name, user_path(@recipe.user)  %> </div>
@@ -39,10 +41,10 @@
         <%= image_tag(@recipe.image.variant(resize_to_limit: [500, 500])) if @recipe.image.attached? %>   
     </div>
     <div class="flex  flex-col justify-center mb-20  gap-2 pl-2  w-6/12 ">
-      <div class="flex  border-4 md:border-dotted border-amber-500    rounded-2xl shadow-md p-10 m-5 ">
+      <div class="flex  border-4 md:border-dotted border-amber-500 bg-orange-100   rounded-2xl shadow-md p-10 m-5 ">
         <div class="flex flex-col font-bold text-black-800 0 my-3 break-words">
           <div class="flex font-sanchez text-center p-1">
-            <strong>Ingredients:</strong>
+            <strong> <%= @recipe.name %> Ingredients </strong>
           </div>
           <ul class="text-l font-normal text-black-400 my-3 break-words list-disc m-3 py-2 px-4">
             <% @recipe.ingredients.each do |ingredient| %>
@@ -59,48 +61,38 @@
   </div>
 
   <%# instructions %>  
-  <div class="flex flex-col align-top  gap-2 pl-4  w-6/12  "> 
-    <div class=" flex justify-left  text-gray-600 ">
-
-      <strong > Instructions: </strong>
+  <div class="flex flex-col justify-evenly gap-2 mt-4 p-4  w-11/12  "> 
+    <div class=" flex font-bold text-2xl mb-2 font-sanchez justify-left  text-gray-600 ">
+      <strong > How to Make <%= @recipe.name %> </strong>
     </div>
-
-
-      <div class=" flex  text-sm font-normal text-black-400 p-5 my-3 mx-2 break-word ">
-            <%= @recipe.content %>
-      </div>
+    <div class=" flex justify-left text-xl   font-comic-neue text-black ">
+          <%= @recipe.content %>
+    </div>
   </div>
 
-        <div>
-
-
-              <%= link_to "Back to recipes", recipes_path, class: "w-24 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-              <%= button_to "Delete this recipe", recipe_path(@recipe), class: "w-24 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",  method: :delete %>
-        </div>
-
-        <div class="max-h-fit w-full overflow-y-auto bg-white-800  shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
-            <h2 class="text-gray-800 dark:text-gray-600 my-3 break-words">
-              <div class="text-gray-800" >
-              Comments 
-              </div>
-            </h2>
-            <% if user_signed_in? %>
-              <%= render partial: "comments/form", locals:{comment: Comment.new, commentable: @recipe} %>
-              <% else %>
-                <p class="text-gray-800 dark:text-gray-600 my-3 break-words">
-                  <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %> to comment 
-                </p>
-            <% end %>
-          </div>
-        </div>
+  <%# initial comment form %>
+  <div class="max-h-fit w-full overflow-y-auto bg-white-800  shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
+    <h2 class="text-gray-800 dark:text-gray-600 my-3 break-words">
+      <div class="text-gray-800" >
+      Comments 
+      </div>
+    </h2>
+    <% if user_signed_in? %>
+      <%= render partial: "comments/form", locals:{comment: Comment.new, commentable: @recipe} %>
+      <% else %>
+        <p class="text-gray-800 dark:text-gray-600 my-3 break-words">
+          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %> to comment 
+        </p>
+    <% end %>
+  </div>
+</div>
 
     <%=turbo_stream_from @recipe, :comments%>
     <div> 
       <%= tag.div id: "#{dom_id(@recipe)}_comments" do %>
         <%= render partial: "comments/comment_with_replies", collection: @recipe.comments, as: :comment%>
       <% end %>
-      </div>
-</div>
+    </div>
 
 
 
