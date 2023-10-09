@@ -1,0 +1,19 @@
+<div>
+  <%= form_with(model: @shopping_list, local: true) do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+<div>
+  <h2>Ingredients:</h2>
+  <ul>
+    <% @recipe.ingredients.each do |item| %>
+      <li><%= item.description %></li>
+    <% end %>
+  </ul>
+</div>
+
+  <div class="actions">
+    <%= form.submit "Add  List" %>
+  </div>
+<% end %>
