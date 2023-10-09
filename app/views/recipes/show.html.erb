@@ -2,6 +2,7 @@
 
   <%# save & share button %>
   <div class="flex justify-end     " >
+
     <div class="flex justify-end gap-2 mt-1 ">
       <div class="flex justify-between">
         <span class="material-symbols-outlined">
@@ -36,11 +37,13 @@
   </div>
 
   <%# image and ingredients  %>
-  <div class='flex  gap-1  mb-2 '>
+  <div class='  gap-1  '>
+
     <div class="flex justify-center pr-1">
-        <%= image_tag(@recipe.image.variant(resize_to_limit: [500, 500])) if @recipe.image.attached? %>   
+        <%= image_tag(@recipe.image.variant(resize_to_limit: [600, 600])) if @recipe.image.attached? %>   
     </div>
-    <div class="flex  flex-col justify-center mb-20  gap-2 pl-2  w-6/12 ">
+
+    <div class="flex  flex-col justify-center mb-20  gap-2 pl-2  w-11/12 ">
       <div class="flex  border-4 md:border-dotted border-amber-500 bg-orange-100   rounded-2xl shadow-md p-10 m-5 ">
         <div class="flex flex-col font-bold text-black-800 0 my-3 break-words">
           <div class="flex font-sanchez text-center p-1">
@@ -57,6 +60,14 @@
           </ul>
         </div>
       </div>
+    <%# save to shopping list start %>
+
+    <div class="flex justify-end ">
+      <%= link_to "Save to List", new_shopping_list_path(recipe_id: @recipe.id), class: "save-recipe" %>
+    </div>
+
+      <%# save to shopping list end %>
+
     </div>
   </div>
 
@@ -71,28 +82,29 @@
   </div>
 
   <%# initial comment form %>
-  <div class="max-h-fit w-full overflow-y-auto bg-white-800  shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
-    <h2 class="text-gray-800 dark:text-gray-600 my-3 break-words">
-      <div class="text-gray-800" >
-      Comments 
-      </div>
-    </h2>
-    <% if user_signed_in? %>
-      <%= render partial: "comments/form", locals:{comment: Comment.new, commentable: @recipe} %>
+  <div class="flex justify-left ml-4 ">
+    <div class=" max-h-fit w-9/12 overflow-y-auto bg-white-800  shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
+      <h4 class="text-gray-400 dark:text-gray-600 my-3 break-words">
+        Comments 
+      </h4>
+      <% if user_signed_in? %>
+        <div class="text-gray-600">
+          <%= render partial: "comments/form", locals: { comment: Comment.new, commentable: @recipe } %>
+        </div>
       <% else %>
         <p class="text-gray-800 dark:text-gray-600 my-3 break-words">
           <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %> to comment 
         </p>
+      <% end %>
+    </div>
+    <%=turbo_stream_from @recipe, :comments%>
+    <%= tag.div id: "#{dom_id(@recipe)}_comments" do %>
+      <%= render partial: "comments/comment_with_replies", collection: @recipe.comments.where(parent_id: nil), as: :comment%>
     <% end %>
   </div>
 </div>
 
-    <%=turbo_stream_from @recipe, :comments%>
-    <div> 
-      <%= tag.div id: "#{dom_id(@recipe)}_comments" do %>
-        <%= render partial: "comments/comment_with_replies", collection: @recipe.comments, as: :comment%>
-      <% end %>
-    </div>
+
 
 
 
