@@ -1,8 +1,17 @@
-<h1>New shopping list</h1>
-<%= render "form", shopping_list: @shopping_list %>
-<br>
-<div>
-    <%= link_to "Back to recipes", recipes_path %>
-</div>
+
+<%= turbo_frame_tag "shopping-list-modal" do %>
+    <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 flex items-center justify-center z-50">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" data-action="click->modal#close"></div>
+                <div class="relative z-10 w-screen max-w-md mx-auto p-6 space-y-4 bg-white rounded-lg shadow-md" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+                    <%= render "form", shopping_list: @shopping_list %>
+                    <br>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>
 
 
