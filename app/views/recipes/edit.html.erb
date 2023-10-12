@@ -1,10 +1,8 @@
-<h1>Editing recipe</h1>
 
-<%= render "form", recipe: @recipe %>
+  
 
-<br>
+      <h1 class="space-y-6 pl-10 text-3xl font-semibold leading-7 font-comic-neue  text-gray-900">Edit your Recipe</h1>
 
-<div>
-  <%= link_to "Show this recipe", @recipe %> |
-  <%= link_to "Back to recipes", recipes_path %>
-</div>
+      <%= render "no_image_form", recipe: @recipe %>
+
+
