@@ -1,0 +1,20 @@
+
+<div>
+  <h1><%= @shopping_list.name %></h1>
+  <div class="flex flex-col gap-y-5 bg-white rounded-[16px] shadow-xl py-3 px-4 duration-500">
+    <% @shopping_list.shopping_list_items.each do |item| %>
+      <div class="flex flex-row justify-between">
+        <div>
+          <%= item.description%>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+  <div class="flex justify-end mt-4">
+    <%= link_to 'Back', @recipe, class: 'btn btn-secondary' %>
+  </div>
+  <%= link_to 'Edit', edit_shopping_list_path(@shopping_list), class: 'btn btn-secondary' %>
+</div>
+    
+
