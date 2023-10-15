@@ -1,4 +1,4 @@
-<div class=" bg-slate-100">
+<div class="  bg-slate-100">
   <div class="flex justify-center items-center h-screen  bg-slate-100">
 
   <div class="flex-1 bg-cover bg-no-repeat h-screen min-h-full justify-end" style="background-image: url('<%= asset_path('wepik-export-20230918234754FDLE.jpeg') %>');">
@@ -70,8 +70,11 @@
                   <%= f.submit "Login", type: "image", src: url_for("/assets/btn_google_dark_normal_ios.svg") %>
               <% end %>
             <% end %>
-            <p class=" text-indigo-600 hover:text-indigo-500 flex w-full justify-start  px-3 py-2.5 text-sm font-semibold leading-6  " p-2">Sign Up with Google</p>
+            <p class=" text-indigo-600 hover:text-indigo-500 flex w-full justify-start  px-3 py-2.5 text-sm font-semibold leading-6  p-2">Sign Up with Google</p>
           </div>
+          <div class="mt-10">
+            <%= link_to "Back to recipes", recipes_path, class: "text-gray-800 text-un" %>
+          </div >
         </div>
       </form>
     </div>
