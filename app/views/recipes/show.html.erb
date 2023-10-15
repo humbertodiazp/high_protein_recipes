@@ -42,7 +42,6 @@
     <div class="flex justify-center pr-1">
         <%= image_tag(@recipe.image.variant(resize_to_limit: [600, 600])) if @recipe.image.attached? %>   
     </div>
-
     <div class="flex  flex-col justify-center mb-20  gap-2 pl-2  w-11/12 ">
       <div class="flex  border-4 md:border-dotted border-amber-500 bg-orange-100   rounded-2xl shadow-md p-10 m-5 ">
         <div class="flex flex-col font-bold text-black-800 0 my-3 break-words">
@@ -60,14 +59,17 @@
           </ul>
         </div>
       </div>
-    <%# save to shopping list start %>
-
-    <div class="flex justify-end ">
-      <%= link_to "Save to List", new_shopping_list_path(recipe_id: @recipe.id), class: "save-recipe" %>
-    </div>
-
-      <%# save to shopping list end %>
-
+      <%# add to  shopping list  %>
+      <div>
+      <%= form_tag(add_to_shopping_list_recipe_path(@recipe), method: :post) do %>
+        <div class="field">
+          <%= label_tag 'shopping_list_id', 'Select or Create a Shopping List' %>
+          <%= select_tag 'recipe[shopping_list_id]', options_for_select(@user_shopping_lists.map { |list| [list.name, list.id] }), include_blank: 'Select a shopping list' %>
+          <%= text_field_tag 'recipe[new_shopping_list]', nil, placeholder: 'Or create a new shopping list' %>
+        </div>
+        <%= submit_tag 'Add to Shopping List' %>
+      <% end %>
+      </div>
     </div>
   </div>
 
