@@ -1,6 +1,6 @@
 
-    <nav id="nav" class="pt-2 px-4 md:flex md:flex-col fixed md:h-screen md:w-fit w-full z-50 ">
-<div class="">
+    <nav id="nav" class="pt-2 px-4 md:flex md:flex-col fixed md:h-screen md:w-fit w-full z-50 border-r-2 border-gray-300 ">
+<div class=" ">
         <div class="flex-shrink-0">
         <div class="my-4  align-center sm:mx-auto sm:w-full sm:max-w-sm">
         <%= link_to root_path do %>
@@ -14,11 +14,11 @@
         
         </div>
       </div>
-        <div class=" mr-5 hidden md:block">
+        <div class=" mr-5 hidden md:block  ">
           <div>
             <ul class=" font-bold md:flex flex-col md:static absolute w-full h-screen left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-0 mt-0 bg-lm-1 dark:bg-dm-1 z-50">
               <!-- home link -->
-              <li class= "text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 dark:hover:bg-gray-800 w-fit  rounded-3xl duration-500 flex items-center gap-3">
+              <li class= "text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
                 <%= link_to root_path do%>
                     <div class="  flex items-center"> <!-- Add a flex container -->
                     
@@ -32,7 +32,7 @@
                 <% end %>  
               </li> 
 
-              <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 dark:hover:bg-gray-800 w-fit  rounded-3xl duration-500 flex items-center gap-3">
+              <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
                 <%#  %>
                   <div class="flex items-center"> <!-- Add a flex container -->
                     <span class="material-symbols-outlined">
@@ -45,7 +45,7 @@
                 <%# end %>
               </li>            
               <!-- new recipe link -->
-              <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 dark:hover:bg-gray-800 w-fit  rounded-3xl duration-500 flex items-center gap-3">
+              <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
                 <%= link_to new_recipe_path do %>
                   <div class="flex items-center"> <!-- Add a flex container -->
                     <span class="material-symbols-outlined text-gray-600">
@@ -57,8 +57,21 @@
                   </div>
                 <% end %>
               </li>
+              <!-- shopping lists link -->
+              <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
+                <%= link_to shopping_lists_path do %>
+                  <div class="flex items-center"> <!-- Add a flex container -->
+                    <span class="material-symbols-outlined">
+                    nutrition
+                    </span>
+                    <span class="mx-3">
+                      Shopping Lists
+                    </span>
+                  </div>
+                <% end %>
+              </li>
               <!-- Log in / log out link -->
-              <li class=" text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 dark:hover:bg-gray-800 w-fit rounded-3xl duration-500 flex items-center gap-3">
+              <li class=" text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit rounded-3xl duration-500 flex items-center gap-3">
                 <% if user_signed_in? %>
                   <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
                     <div class="flex items-center"> <!-- Add a flex container -->
