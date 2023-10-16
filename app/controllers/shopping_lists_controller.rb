@@ -4,6 +4,7 @@ class ShoppingListsController < ApplicationController
   
     def index
       @shopping_lists = current_user.shopping_lists
+      render layout: 'no_nav'
     end
   
     def show
