@@ -1,0 +1,27 @@
+<%= form_for @shopping_list, url: shopping_list_path(@shopping_list), method: :patch do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <!-- Loop through the ingredients in the shopping list -->
+  <div class="flex flex-wrap">
+    <% @shopping_list.shopping_list_items.each do |shopping_list_item| %>
+      <div class="w-1/4 px-2"> <!-- Adjust the width as needed -->
+        <%= f.fields_for :shopping_list_items, shopping_list_item do |shopping_list_fields| %>
+          <div class="border rounded p-2 mb-2">
+            <%= shopping_list_fields.label :description %>
+            <%= shopping_list_fields.text_field :description %>
+            <%= link_to 'Remove', shopping_list_shopping_list_item_path(@shopping_list, shopping_list_item), method: :delete %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <!-- Add a button to add a new ingredient -->
+  <div class="actions">
+    <%= f.submit 'Update Shopping List' %>
+  </div>
+<% end %>
