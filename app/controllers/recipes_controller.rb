@@ -57,16 +57,28 @@ class RecipesController < ApplicationController
       shopping_list = current_user.shopping_lists.create(name: params[:recipe][:new_shopping_list])
     end
   
+    # Get the existing shopping list items for this shopping list
+    existing_items = shopping_list.shopping_list_items.pluck(:description)
+  
     @recipe.ingredients.each do |ingredient|
+      description = ingredient.description
+  
+      # Check if the ingredient is already in the shopping list
+      next if existing_items.include?(description)
+  
       shopping_list_item = shopping_list.shopping_list_items.build(
-        description: ingredient.description,
+        description: description,
         ingredient_id: ingredient.id # Provide the ingredient_id
       )
       shopping_list_item.save
+  
+      # Update the existing_items array with the new item
+      existing_items << description
     end
   
     redirect_to @recipe, notice: 'Ingredients added to the shopping list.'
   end
+  
   
   
   
