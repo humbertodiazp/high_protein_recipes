@@ -1,20 +1,35 @@
+<div class="">
+  <div class="">
+    <h1 class="flex font-bold text-4xl font-sanchez m-2 mb-10">
+      <%= @shopping_list.name %>
+    </h1>
 
-<div>
-  <h1><%= @shopping_list.name %></h1>
-  <div class="flex flex-col gap-y-5 bg-white rounded-[16px] shadow-xl py-3 px-4 duration-500">
-    <% @shopping_list.shopping_list_items.each do |item| %>
-      <div class="flex flex-row justify-between">
-        <div>
-          <%= item.description%>
-        </div>
-
+<div class="ml-2">
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <% @shopping_list.shopping_list_items.each_slice(9) do |shopping_list_items_group| %>
+      <div class="flex flex-col">
+        <% shopping_list_items_group.each do |shopping_list_item| %>
+          <ul class="text-l font-normal text-black-400 my-3 break-words list-disc m-3 py-2 px-4">
+            <li class="font-extrabold text-green-500">
+              <div class="text-black font-normal font-sanchez text-xl">
+                <%= shopping_list_item.description %>
+              </div>
+            </li>
+          </ul>
+        <% end %>
       </div>
     <% end %>
   </div>
-  <div class="flex justify-end mt-4">
-    <%= link_to 'Back', @recipe, class: 'btn btn-secondary' %>
-  </div>
-  <%= link_to 'Edit', edit_shopping_list_path(@shopping_list), class: 'btn btn-secondary' %>
 </div>
-    
+
+<!-- Add a button to edit the shopping list -->
+<div class="flex  justify-start mt-3 m-2  ">
+  <div class=" bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-2 rounded shadow focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
+    <%= link_to 'Edit Ingredients', new_shopping_list_item_path %>
+  </div>
+</div>
+  </div>
+
+</div>
+
 
