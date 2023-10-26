@@ -1,0 +1,27 @@
+<div class=" lg:block flex flex-col mt-10 ml--5 mr-20">
+
+  <div>
+    <h2 class="text-3xl font-bold bg-blend-color-dodge mb-2">New Recipes</h2>
+
+
+    <div class="flex flex-col gap-y-5 bg-white rounded-[16px] shadow-xl  py-3 px-4 duration-500">
+      <%  @recipes.limit(3).each do |recipe| %>
+        <%= link_to recipe.name.truncate(25), recipe_path(recipe) %> 
+
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt-7">
+    <h2 class="text-3xl font-bold mb-2">Shopping lists</h2>
+
+    <div class="flex flex-col gap-y-5 bg-white  rounded-[16px] shadow-xl py-3 px-4 duration-500">
+      <% current_user.shopping_lists.limit(3).each do |shopping_list| %>
+        <%= link_to shopping_list.name, shopping_list_path(shopping_list) %> 
+
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
