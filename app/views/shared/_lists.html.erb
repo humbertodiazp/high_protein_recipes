@@ -1,37 +1,31 @@
-<div class=" lg:block flex flex-col mt-10 ml--5 mr-20">
-
+<div class="lg:block flex flex-col mt-10 ml--5 mr-20">
   <div>
-    <h2 class="text-3xl font-bold bg-blend-color-dodge mb-2">New Recipes</h2>
-
-
-    <div class="flex flex-col gap-y-1 bg-white rounded-[16px] shadow-xl  py-3 px-4 duration-500">
-      <%  @recipes.limit(3).each do |recipe| %>
-        <div class="font-sanchez text-xl bg-orange-100 p-2 rounded-xl border border-1">
+    <h2 class="text-2xl font-bold bg-blend-color-dodge mb-2">Newest Recipes</h2>
+    <div class="flex flex-col gap-y-1 bg-white rounded-[16px] shadow-xl py-3 px-4 duration-500">
+      <% @recipes.order(created_at: :desc).limit(3).each do |recipe| %>
+        <div class="font-sanchez text-lg bg-orange-100 p-2 rounded-xl border border-1">
           <%= link_to recipe.name.truncate(25), recipe_path(recipe) %>
         </div>
-
       <% end %>
     </div>
   </div>
 
   <div class="mt-7">
-    <h2 class="text-3xl font-bold mb-2">Shopping lists</h2>
-  <% if current_user.shopping_lists.any? %>
-
-    <div class="flex flex-col gap-y-1 bg-white  rounded-[16px] shadow-xl py-3 px-4 duration-500">
-      <% current_user.shopping_lists.limit(3).each do |shopping_list| %>
-      <div class="font-sanchez text-xl bg-lime-100 p-2 rounded-xl border border-1">
-        <%= link_to shopping_list.name, shopping_list_path(shopping_list) %> 
-      </div>
-      <% end %>
+    <h2 class="text-2xl font-bold mb-2">Shopping lists</h2>
+    <% if current_user.shopping_lists.any? %>
+      <div class="flex flex-col gap-y-1 bg-white rounded-[16px] shadow-xl py-3 px-4 duration-500">
+        <% current_user.shopping_lists.order(created_at: :desc).limit(3).each do |shopping_list| %>
+          <div class="font-sanchez text-lg bg-lime-100 p-2 rounded-xl border border-1">
+            <%= link_to shopping_list.name, shopping_list_path(shopping_list) %> 
+          </div>
+        <% end %>
       </div>
     </div>
-  <% else %>
-    <div class="flex flex-col gap-y-5 bg-white  rounded-[16px] shadow-xl py-3 px-4 duration-500">
-      <p class="text-xl font-bold">You don't have any shopping lists yet.</p>
-      <p class="text-xl font-bold">Create one now!</p>
-    </div>
-  <% end %>
+    <% else %>
+      <div class="flex flex-col gap-y-5 bg-white rounded-[16px] shadow-xl py-3 px-4 duration-500">
+        <p class="text-xl font-bold">You don't have any shopping lists yet.</p>
+        <p class="text-xl font-bold">Create one now!</p>
+      </div>
+    <% end %>
   </div>
 </div>
-
