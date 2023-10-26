@@ -2,8 +2,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'actiontext.css';
 @import "trix_custom.css"; 
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
 
 @layer components {
@@ -16,14 +17,58 @@
     }
 
     
-    .material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
-    }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
 
+.image {
+  width: 300px;
+  height: auto;
+}
+
+.image-container {
+  width: 300px;
+  height: 300px;
+}
+
+.liked {
+  color: red;
+}
+
+.save-recipe {
+  border: 1px solid #dedada;
+  border-radius: 4px;
+  color: #757575;
+  cursor: pointer;
+  
+}
+/* For the delete button */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/* For the add button */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+}
+
+@media print {
+  #print-button {
+    display: none;
+  }
 }
 
 
