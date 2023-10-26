@@ -14,6 +14,7 @@
 
   <div class="mt-7">
     <h2 class="text-3xl font-bold mb-2">Shopping lists</h2>
+  <% if current_user.shopping_lists.any? %>
 
     <div class="flex flex-col gap-y-5 bg-white  rounded-[16px] shadow-xl py-3 px-4 duration-500">
       <% current_user.shopping_lists.limit(3).each do |shopping_list| %>
@@ -22,6 +23,12 @@
       <% end %>
       </div>
     </div>
+  <% else %>
+    <div class="flex flex-col gap-y-5 bg-white  rounded-[16px] shadow-xl py-3 px-4 duration-500">
+      <p class="text-xl font-bold">You don't have any shopping lists yet.</p>
+      <p class="text-xl font-bold">Create one now!</p>
+    </div>
+  <% end %>
   </div>
 </div>
 
