@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_02_031143) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_02_040234) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -98,6 +98,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_02_031143) do
     t.integer "user_id", null: false
     t.integer "likes_count", default: 0
     t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "shopping_list_items", force: :cascade do |t|
