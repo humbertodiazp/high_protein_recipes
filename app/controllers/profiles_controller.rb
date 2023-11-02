@@ -1,28 +1,41 @@
-class ProfilesController < ApplicationController
-    before_action :authenticate_user!
-    # before_action :set_profile 
 
-    def update
-        if @user.update(profile_params)
-            redirect_to @user, notice: 'Profile was successfully updated.'
+class ProfilesController < ApplicationController
+    before_action :set_profile
+    before_action :authenticate_user!
+
+    def edit
+        @profile = current_user.profile || current_user.build_profile
+        render layout: 'no_nav'
+    end
+
+    def create
+        @profile = current_user.build_profile(profile_params)
+        if @profile.save
+        redirect_to @profile
         else
-            render :edit
+        render :new, layout: 'no_nav'
+        end
+        render layout: 'no_nav'
+    end
+    
+    def update
+        if @profile.update(profile_params)
+        redirect_to @profile, notice: 'Profile was successfully updated.'
+        else
+        render :edit, layout: 'no_nav'
         end
     end
-
-    def show
-        @user = User.find(params[:id])
-        @profile = @user.profile
-        @recipes = @user.recipes
-
-    end
-
+    
+    # Other actions and private methods here
+    
     private
-    # def set_profile
-    #     @user = current_user.find(params[:id])
-    # end
-
+    
+    def set_profile
+        @profile = current_user.profile || current_user.build_profile
+    end
+    
     def profile_params
-        params.require(:profile).permit(:full_name, :location, :link, :bio, :image)
+        params.require(:profile).permit(:name, :location, :link, :bio, :image)
     end
 end
+    
