@@ -40,8 +40,8 @@
             <%= render partial: 'shared/stats', locals: { user: @user } %>
         </div>
 
-        <div class="flex mr-2 bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
-            <%= link_to 'Edit profile', edit_profile_path, class:"" %>
+        <div class="flex mr-2 bg-blue-600 hover:bg-blue-700 text-gray-100 px-2 py-1 rounded text-sm space-x-2 transition duration-100">
+            <%= link_to 'Edit Profile', edit_profile_path if user_signed_in? && current_user == @user %>
         </div>
  
         </div>
