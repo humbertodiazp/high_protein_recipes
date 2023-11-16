@@ -9,13 +9,16 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes, as: :record  
   has_many :active_relationships,  class_name:  "Relationship",
-                                   foreign_key: "follower_id",
-                                   dependent:   :destroy
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
   has_many :passive_relationships, class_name:  "Relationship",
-                                   foreign_key: "followed_id",
-                                   dependent:   :destroy
+                                  foreign_key: "followed_id",
+                                  dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  # notifications
+  has_many :notifications, as: :recipient, dependent: :destroy
+ 
   
   has_one :profile, dependent: :destroy 
 
@@ -31,10 +34,26 @@ class User < ApplicationRecord
     end 
   end
 
+  # Returns a user's status feed.
+  def feed
+    following_ids = "SELECT followed_id FROM relationships
+                    WHERE  follower_id = :user_id"
+    Recipe.where("user_id IN (#{following_ids})
+                    OR user_id = :user_id", user_id: id)
+  end
+
+
   # Follows a user.
   def follow(other_user)
-    active_relationships.create(followed_id: other_user.id)
+    relationship = active_relationships.create(followed_id: other_user.id)
+    notify other_user, relationship
+    
+    # :new_follower, recipient: other_user, actor: self, related: relationship
   end
+
+  # def notification_count
+  #   notifications.count
+  # end
 
   # Unfollows a user.
   def unfollow(other_user)
