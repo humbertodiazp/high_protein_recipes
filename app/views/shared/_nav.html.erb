@@ -1,98 +1,141 @@
+<nav id="nav" class="pt-2 px-4 md:flex md:flex-col fixed md:h-screen md:w-fit w-full z-50 border-r-2 border-gray-300 ">
+  <div class=" mr-5 hidden md:block  ">
+    <div class="my-4  align-center sm:mx-auto sm:w-full sm:max-w-sm">
+      <%= link_to root_path do %>
+        <svg class="flex text-left mx-6 my-4 h-8 w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="1.4169999999999998 8.164 29.166000000000004 15.671999999999999">
+          <path d="M23.184 8.164c-1.294 0-2.366 2.826-2.573 6.531h-9.22c-0.208-3.705-1.279-6.531-2.574-6.531H7.538C8.809 9.513 9.47 12.768 9.47 16c0 3.231-0.661 6.486-1.932 7.836h1.279c1.294 0 2.366-2.826 2.573-6.53h9.221c0.208 3.704 1.279 6.53 2.573 6.53 1.442 0 2.611-3.509 2.611-7.836C25.795 11.672 24.626 8.164 23.184 8.164zM28.407 9.47h-1.17c-0.413-0.824-0.909-1.306-1.442-1.306h-1.279c1.271 1.349 1.933 4.604 1.933 7.836 0 3.231-0.661 6.486-1.933 7.836h1.279c0.533 0 1.029-0.482 1.442-1.306h1.17c1.201 0 2.176-2.924 2.176-6.53S29.608 9.47 28.407 9.47zM3.593 9.47c-1.201 0-2.176 2.924-2.176 6.53s0.975 6.53 2.176 6.53c1.203 0 2.177-2.924 2.177-6.53S4.795 9.47 3.593 9.47zM3.593 17.306c-0.361 0-0.653-0.584-0.653-1.306 0-0.721 0.292-1.306 0.653-1.306S4.246 15.279 4.246 16C4.246 16.722 3.954 17.306 3.593 17.306zM6.205 8.164c-0.517 0-0.998 0.459-1.402 1.238 1.104 1.179 1.62 3.962 1.62 6.598 0 2.637-0.515 5.419-1.62 6.598 0.404 0.778 0.885 1.238 1.402 1.238 1.442 0 2.612-3.509 2.612-7.836C8.817 11.672 7.647 8.164 6.205 8.164z" fill="currentColor"></path>
+        </svg>
+        <strong class="text-sm   ">High Protein Recipes</strong>
+      <% end %>
+    </div>
 
-    <nav id="nav" class="pt-2 px-4 md:flex md:flex-col fixed md:h-screen md:w-fit w-full z-50 border-r-2 border-gray-300 ">
+    <div class="flex justify-between">
+    <% if user_signed_in? %>
+      <%= turbo_frame_tag "notifications", src: notifications_path %>
+    <% else %>
+        <h1 class="font-bold text-4xl">Notifications</h1>
+        <p class="text-gray-900">You must be logged in to view notifications.</p>
+    <% end %>
+  </div>
+    <div>
+      <ul class=" font-bold md:flex flex-col md:static absolute w-full h-screen left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-0 mt-0 bg-lm-1 dark:bg-dm-1 z-50">
+        <!-- home link -->
+        <li class= "text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
+          <%= link_to root_path do%>
+              <div class="  flex items-center"> <!-- Add a flex container -->
+              
+              <span class="material-symbols-outlined  text-gray-600">
+                  home
+              </span>
+              <span class="mx-3">
+                Home   
+              </span>  
+            </div>
+          <% end %>  
+        </li> 
 
-        <div class=" mr-5 hidden md:block  ">
-          <div class="my-4  align-center sm:mx-auto sm:w-full sm:max-w-sm">
-            <%= link_to root_path do %>
-              <svg class="flex text-left mx-6 my-4 h-8 w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="1.4169999999999998 8.164 29.166000000000004 15.671999999999999">
-                <path d="M23.184 8.164c-1.294 0-2.366 2.826-2.573 6.531h-9.22c-0.208-3.705-1.279-6.531-2.574-6.531H7.538C8.809 9.513 9.47 12.768 9.47 16c0 3.231-0.661 6.486-1.932 7.836h1.279c1.294 0 2.366-2.826 2.573-6.53h9.221c0.208 3.704 1.279 6.53 2.573 6.53 1.442 0 2.611-3.509 2.611-7.836C25.795 11.672 24.626 8.164 23.184 8.164zM28.407 9.47h-1.17c-0.413-0.824-0.909-1.306-1.442-1.306h-1.279c1.271 1.349 1.933 4.604 1.933 7.836 0 3.231-0.661 6.486-1.933 7.836h1.279c0.533 0 1.029-0.482 1.442-1.306h1.17c1.201 0 2.176-2.924 2.176-6.53S29.608 9.47 28.407 9.47zM3.593 9.47c-1.201 0-2.176 2.924-2.176 6.53s0.975 6.53 2.176 6.53c1.203 0 2.177-2.924 2.177-6.53S4.795 9.47 3.593 9.47zM3.593 17.306c-0.361 0-0.653-0.584-0.653-1.306 0-0.721 0.292-1.306 0.653-1.306S4.246 15.279 4.246 16C4.246 16.722 3.954 17.306 3.593 17.306zM6.205 8.164c-0.517 0-0.998 0.459-1.402 1.238 1.104 1.179 1.62 3.962 1.62 6.598 0 2.637-0.515 5.419-1.62 6.598 0.404 0.778 0.885 1.238 1.402 1.238 1.442 0 2.612-3.509 2.612-7.836C8.817 11.672 7.647 8.164 6.205 8.164z" fill="currentColor"></path>
-              </svg>
-              <strong class="text-sm   ">High Protein Recipes</strong>
+        <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
+          <%= link_to current_user do %>
+            <div class="flex items-center"> <!-- Add a flex container -->
+              <span class="material-symbols-outlined">
+                  account_circle
+              </span>
+              <span class="mx-3">
+                Profile
+              </span>
+            </div>
+          <% end %>
+        </li>            
+        <!-- new recipe link -->
+        <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
+          <%= link_to new_recipe_path do %>
+            <div class="flex items-center"> <!-- Add a flex container -->
+              <span class="material-symbols-outlined text-gray-600">
+                add_circle_outline
+              </span>
+              <span class="mx-3">
+                Add Recipe
+              </span>
+            </div>
+          <% end %>
+        </li>
+        <!-- shopping lists link -->
+        <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
+          <%= link_to shopping_lists_path do %>
+            <div class="flex items-center"> <!-- Add a flex container -->
+              <span class="material-symbols-outlined">
+              nutrition
+              </span>
+              <span class="mx-3">
+                Shopping Lists
+              </span>
+            </div>
+          <% end %>
+        </li>
+        <!-- notifications link -->
+        <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit rounded-3xl duration-500 flex items-center gap-3">
+          <% if user_signed_in? %>
+            <%= link_to notifications_path do %>
+              <div class="flex items-center relative"> <!-- Add a flex container with relative positioning -->
+                <span class="material-symbols-outlined relative">
+                  favorite
+                  <% if current_user.notifications.count > 0 %>
+                    <!-- Add a span for the notification count overlay -->
+                    <span class="bg-red-500 font-sanchez font-extrabold  text-white text-center text-xs rounded-full px-1 absolute -top-1 -right-1">
+                      <%= current_user.notifications.count %>
+                    </span>
+                  <% end %>
+                </span>
+                <span class="mx-3">
+                  Notifications
+                </span>
+              </div>
             <% end %>
-          </div>
-          <div>
-            <ul class=" font-bold md:flex flex-col md:static absolute w-full h-screen left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-0 mt-0 bg-lm-1 dark:bg-dm-1 z-50">
-              <!-- home link -->
-              <li class= "text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
-                <%= link_to root_path do%>
-                    <div class="  flex items-center"> <!-- Add a flex container -->
-                    
-                    <span class="material-symbols-outlined  text-gray-600">
-                        home
-                    </span>
-                    <span class="mx-3">
-                      Home   
-                    </span>  
-                  </div>
-                <% end %>  
-              </li> 
+          <% else %>
+            <%= link_to sign_up_path do %>
+              <div class="flex items-center"> <!-- Add a flex container -->
+                <span class="material-symbols-outlined">
+                  favorite
+                </span>
+                <span class="mx-3">
+                  Notifications
+                </span>
+              </div>
+            <% end %>
+          <% end %>
+        </li>
 
-              <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
-                <%= link_to current_user do %>
-                  <div class="flex items-center"> <!-- Add a flex container -->
-                    <span class="material-symbols-outlined">
-                        account_circle
-                    </span>
-                    <span class="mx-3">
-                      Profile
-                    </span>
-                  </div>
-                <% end %>
-              </li>            
-              <!-- new recipe link -->
-              <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
-                <%= link_to new_recipe_path do %>
-                  <div class="flex items-center"> <!-- Add a flex container -->
-                    <span class="material-symbols-outlined text-gray-600">
-                      add_circle_outline
-                    </span>
-                    <span class="mx-3">
-                      Add Recipe
-                    </span>
-                  </div>
-                <% end %>
-              </li>
-              <!-- shopping lists link -->
-              <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit  rounded-3xl duration-500 flex items-center gap-3">
-                <%= link_to shopping_lists_path do %>
-                  <div class="flex items-center"> <!-- Add a flex container -->
-                    <span class="material-symbols-outlined">
-                    nutrition
-                    </span>
-                    <span class="mx-3">
-                      Shopping Lists
-                    </span>
-                  </div>
-                <% end %>
-              </li>
-              <!-- Log in / log out link -->
-              <li class=" text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit rounded-3xl duration-500 flex items-center gap-3">
-                <% if user_signed_in? %>
-                  <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
-                    <div class="flex items-center"> <!-- Add a flex container -->
-                      <span class="material-symbols-outlined text-gray-600">
-                        logout
-                      </span>
-                      <span class="mx-3">
-                        Log Out
-                      </span>
-                    </div>
-                  <% end %>
-                <% else %>
-                  <%= link_to new_user_session_url do %>
-                    <div class="flex items-center"> <!-- Add a flex container -->
-                      <span class="material-symbols-outlined text-gray-600">
-                        login
-                      </span>
-                      <span class="mx-3">
-                        Log In
-                      </span>
-                    </div>
-                  <% end %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>  
-    </nav>
+
+        
+        <!-- Log in / log out link -->
+        <li class=" text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit rounded-3xl duration-500 flex items-center gap-3">
+          <% if user_signed_in? %>
+            <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
+              <div class="flex items-center"> <!-- Add a flex container -->
+                <span class="material-symbols-outlined text-gray-600">
+                  logout
+                </span>
+                <span class="mx-3">
+                  Log Out
+                </span>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_url do %>
+              <div class="flex items-center"> <!-- Add a flex container -->
+                <span class="material-symbols-outlined text-gray-600">
+                  login
+                </span>
+                <span class="mx-3">
+                  Log In
+                </span>
+              </div>
+            <% end %>
+          <% end %>
+        </li>
+        <li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
