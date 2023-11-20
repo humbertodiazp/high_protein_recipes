@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :shopping_lists
   has_many :comments
+  #likes 
   has_many :likes, as: :record  
+  #follows
   has_many :active_relationships,  class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -18,8 +20,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   # notifications
   has_many :notifications, as: :recipient, dependent: :destroy
- 
-  
+  # profile
   has_one :profile, dependent: :destroy 
 
 
@@ -51,9 +52,6 @@ class User < ApplicationRecord
     # :new_follower, recipient: other_user, actor: self, related: relationship
   end
 
-  # def notification_count
-  #   notifications.count
-  # end
 
   # Unfollows a user.
   def unfollow(other_user)
