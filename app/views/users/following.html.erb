@@ -1,0 +1,11 @@
+<h1 class="font-sanchez text-center text-4xl font-extrabold mb-4">Following</h1>
+<div class="flex justify-center mt-4">
+  <ul>
+    <% @user.following.each do |followed| %>
+      <li>
+        <%= link_to followed.full_name, followed, class:"text-md font-semibold  " %>
+        <%= link_to "Unfollow", followed, method: :delete, class:" font-semibold ml-2 mr-2 bg-blue-600 hover:bg-blue-700 text-gray-100 px-2 py-1 rounded text-sm space-x-2 transition duration-100"%>
+      </li>
+    <% end %>
+  </ul>
+</div>
