@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
+        @followers = @user.followers
     end
 
     # def new 
@@ -14,13 +15,20 @@ class UsersController < ApplicationController
     def show
         @recipe = @user.recipes 
         @profile = @user.profile
-
         render layout: 'no_nav'
     end
 
-    # def followers 
-    #     @follower = @user.followers
-    # end
+
+
+    def followers 
+        @follower = @user.active_relationships.map(&:follower)
+        render layout: 'no_nav'
+    end
+
+    def following
+        @following = @user.passive_relationships.map(&:followed)
+        render layout: 'no_nav'
+    end
 
 
     private
