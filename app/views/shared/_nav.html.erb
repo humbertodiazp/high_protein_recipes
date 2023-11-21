@@ -9,13 +9,6 @@
       <% end %>
     </div>
 
-    <div class="flex justify-between">
-    <% if user_signed_in? %>
-      <%= turbo_frame_tag "notifications", src: notifications_path %>
-    <% else %>
-        <h1 class="font-bold text-4xl">Notifications</h1>
-        <p class="text-gray-900">You must be logged in to view notifications.</p>
-    <% end %>
   </div>
     <div>
       <ul class=" font-bold md:flex flex-col md:static absolute w-full h-screen left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-0 mt-0 bg-lm-1 dark:bg-dm-1 z-50">
@@ -73,6 +66,7 @@
           <% end %>
         </li>
         <!-- notifications link -->
+
         <li class="text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit rounded-3xl duration-500 flex items-center gap-3">
           <% if user_signed_in? %>
             <%= link_to notifications_path do %>
@@ -81,7 +75,7 @@
                   favorite
                   <% if current_user.notifications.count > 0 %>
                     <!-- Add a span for the notification count overlay -->
-                    <span class="bg-red-500 font-sanchez font-extrabold  text-white text-center text-xs rounded-full px-1 absolute -top-1 -right-1">
+                    <span class="bg-red-500 font-sanchez font-extrabold text-white text-center text-xs rounded-full px-1 absolute -top-1 -right-1">
                       <%= current_user.notifications.count %>
                     </span>
                   <% end %>
@@ -104,9 +98,19 @@
             <% end %>
           <% end %>
         </li>
-
-
-        
+        <!-- Settings link -->
+        <li class=" text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit rounded-3xl duration-500 flex items-center gap-3">
+          <%= link_to edit_user_registration_path do %>
+            <div class="flex items-center"> <!-- Add a flex container -->
+              <span class="material-symbols-outlined">
+                settings
+              </span>
+              <span class="mx-3">
+                Settings
+              </span>
+            </div>          
+          <%end%>
+        </li>
         <!-- Log in / log out link -->
         <li class=" text-gray-600 nav-item mx-1 my-3 text-xl py-1 hover:bg-gray-200 w-fit rounded-3xl duration-500 flex items-center gap-3">
           <% if user_signed_in? %>
