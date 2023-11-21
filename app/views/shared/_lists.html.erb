@@ -1,6 +1,6 @@
-<div class="lg:block flex flex-col mt-10 ml--5 mr-20">
+<div class="lg:block flex flex-col mt-10  mr-20">
   <div>
-    <h2 class="text-2xl font-bold bg-blend-color-dodge mb-2">Newest Recipes</h2>
+    <h2 class="font-sanchez text-2xl font-bold bg-blend-color-dodge mb-2">Newest Recipes</h2>
     <div class="flex flex-col gap-y-1 bg-white rounded-[16px] shadow-xl py-3 px-4 duration-500">
       <% @recipes.order(created_at: :desc).limit(3).each do |recipe| %>
         <div class="font-sanchez text-lg bg-orange-100 p-2 rounded-xl border border-1">
@@ -11,7 +11,7 @@
   </div>
 
   <div class="mt-7">
-    <h2 class="text-2xl font-bold mb-2">Shopping lists</h2>
+    <h2 class="font-sanchez text-2xl font-bold mb-2">Shopping lists</h2>
     <% if current_user.shopping_lists.any? %>
       <div class="flex flex-col gap-y-1 bg-white rounded-[16px] shadow-xl py-3 px-4 duration-500">
         <% current_user.shopping_lists.order(created_at: :desc).limit(3).each do |shopping_list| %>
