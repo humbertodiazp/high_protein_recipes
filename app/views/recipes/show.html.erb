@@ -22,7 +22,7 @@
       </div>
       <div class="flex ml-4 hover ">
       <% if current_user == @recipe.user %> 
-        <%= link_to "Edit", edit_recipe_path(@recipe), class: " hover:text-gray-600 text-gray-400  "%>
+        <%= link_to "Edit", edit_recipe_path(@recipe), class: "hover:text-gray-600 text-gray-400  "%>
       <% end %>
       </div>
     </div>
@@ -62,13 +62,17 @@
       <%# add to  shopping list  %>
       <div>
       <%= form_tag(add_to_shopping_list_recipe_path(@recipe), method: :post) do %>
-        <div class="field">
-          <%= label_tag 'shopping_list_id', 'Select or Create a Shopping List' %>
-          <%= select_tag 'recipe[shopping_list_id]', options_for_select(@user_shopping_lists.map { |list| [list.name, list.id] }), include_blank: 'Select a shopping list' %>
-          <%= text_field_tag 'recipe[new_shopping_list]', nil, placeholder: 'Or create a new shopping list' %>
+        <div class="ml-10">
+          <div>
+            <%= label_tag 'shopping_list_id', 'Select or Add new Shopping List', class:" font-sanchez" %>
+            <%= select_tag 'recipe[shopping_list_id]', options_for_select(@user_shopping_lists.map { |list| [list.name, list.id] }), include_blank: 'Select a shopping list' %>
+            <%= text_field_tag 'recipe[new_shopping_list]', nil, placeholder: 'Add new shopping list' %>
+          </div>
+          
+          <%= submit_tag 'Add to Shopping List', class: "bg-orange-400 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50 " %>
         </div>
-        <%= submit_tag 'Add to Shopping List' %>
       <% end %>
+
       </div>
     </div>
   </div>
