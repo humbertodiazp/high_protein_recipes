@@ -1,13 +1,22 @@
-<h1>Recipes#home</h1>
-<p>Find me in app/views/recipes/home.html.erb</p>
+<!-- Pagination links -->
+<%= will_paginate @feed_items %>
+<div>
+  <%# <%content_for(:page_title, "High Protein Recipes") %> 
+  <header>
+    <div class="mx-auto mb-4 max-w-7xl  sm:px-6 lg:px-8">
+      <h1 class="text-4xl mb-10 font-serif-bold font-bold leading-tight tracking-tight text-gray-900 drop-shadow-sm ">
+        High Protein Recipes
+      </h1>
+    </div>
+  </header>        
+  <div class=" justify-center   gap-2">
+        <!-- Your recipe list or feed -->
+        <% @feed_items.each do |recipe| %>
+        <!-- Render recipe details here -->
+            <%= render recipe %>
 
-<% if current_user%>
-<h2><%= current_user.email %></h2>
-<%= link_to "Edit Account", edit_user_registration_path %>
-<%= button_to "Logout", destroy_user_sessions_path, data: {turbo:"false"}, method: :delete%>
-<% else %>
-<%= link_to "Login", new_user_session_path %>
-<%= link_to "Sign Up", new_user_registration_path %>
-<% end %>
+        <% end %>
+    </div>
 
-
+  <%# <%= link_to "New recipe", new_recipe_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %> 
+</div>
