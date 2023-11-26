@@ -1,15 +1,13 @@
 <%= fields model: @recipe do |form| %>
   <%= form.fields_for :ingredients, child_index: params[:index] do |ingredient_form| %>
     <%= turbo_stream.replace "add-ingredient" do %>
-      <%= form.submit "Add", 
+      <%= form.submit "add", 
             formaction: ingredient_path(ingredient_form.index.to_i + 1), 
             formmethod: :post, 
             formnovalidate: true, 
-            id: "add-ingredients", 
-            class: " ml-2 m-1 bg-green-600  text-sm font-semibold text-white rounded-e shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-600"
-%>
+            id: "add-ingredient", 
+            class: "rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
     <% end %>
-
     <%= turbo_stream.append "ingredients" do %>
       <%= render "form", form: ingredient_form %>
     <% end %>
