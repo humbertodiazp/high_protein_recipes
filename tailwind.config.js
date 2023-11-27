@@ -13,7 +13,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sanchez': ['"Sanchez"', 'serif'],
+        'sanchez': ['"Sanchez"', 'serif'], 
+        'comic-neue': ['"Oxygen"', 'sans-serif'],
       },
     },
   },
