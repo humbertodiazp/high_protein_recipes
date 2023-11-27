@@ -9,6 +9,6 @@ window.Stimulus   = application
 
 export { application }
 
-import { Trix } from "trix";
+// import { Trix } from "trix";
 
 // Path: app/javascript/controllers/trix.js
