@@ -1,4 +1,4 @@
-<div class=" flex flex-col justify-between bg-white w-10/12  shadow-md dark:bg-dm-2 dark:shad  rounded-[15px] duration-500 my-10 py-3 px-4 ">
+<div class=" flex flex-col justify-between bg-white w-11/12 p-2 mr-4  shadow-md dark:bg-dm-2 dark:shad  rounded-[15px] duration-500 my-4 py-3 px-2 ">
   <div class="flex justify-between">
       <strong class="text-xs dark:text-gray-300"><%= link_to recipe.user.full_name, user_path(recipe.user)  %></strong>
       <p class="text-xs text-gray-800 dark:text-gray-300 justify-self-end"><%= time_ago_in_words(recipe.created_at) %> ago</p>
@@ -9,8 +9,10 @@
   <div class='flex self-center mb-2'>
     <%= image_tag(recipe.image.variant(resize_to_limit: [300, 300])) if recipe.image.attached? %>   
   </div>
-  <div class="flex justify-evenly align-bottom gap-1 mt-4 ">
-    <%=  render "recipes/likes",  recipe: recipe %>
+  <div class="flex justify-evenly align-bottom gap-2 mt-4 ">
+    <div class="flex justify-between gap-1  ">
+      <%=  render "recipes/likes",  recipe: recipe %>
+    </div>
 
     <div class="flex justify-between gap-1  ">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex w-6 h-6  ">

@@ -1,0 +1,11 @@
+<div data-controller="previews" class=" ml-2 col-span-full">
+    <%= form.label :image, class:"block font-semibold text-sm font-medium leading-6 text-gray-600" %>
+    <%= form.file_field :image, class:"block  rounded-md  py-1.5 text-gray-900  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+    direct_upload: true,
+    data: { previews_target: "input", action: "change->previews#preview" } %>
+    <% if recipe.image.attached? %>
+        <%= image_tag recipe.image, data: { previews_target: "preview" }, class: " " %>
+    <% else %>
+        <%= image_tag " ", data: { previews_target: "preview" }, class: " " %>
+    <% end %>
+</div>
