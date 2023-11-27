@@ -2,6 +2,9 @@ require_relative "boot"
 
 require "rails/all"
 
+require 'will_paginate/array'
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -46,6 +49,10 @@ module HighProteinRecipes
 
     #GZip all responses
     config.middleware.use Rack::Deflater
+
+    config.action_controller.default_protect_from_forgery = true
+    # config.assets.enabled = true
+    # config.assets.paths << Rails.root.join("app", "assets", "stylesheets")
     
     # Include the authenticity token in remote forms.
     config.action_view.embed_authenticity_token_in_remote_forms = true
