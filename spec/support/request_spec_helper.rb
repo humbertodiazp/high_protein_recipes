@@ -1,10 +1,9 @@
 module RequestSpecHelper
     include Warden::Test::Helpers
 
-
-    def self.include(base)
-        base.before(:each) do {Warden.test_model}
-        base.after(:each) do {Warden.test_reset!}
+    def self.included(base)
+        base.before(:each) { Warden.test_mode! }
+        base.after(:each) { Warden.test_reset! }
     end
 
     def sign_in(resource)
@@ -16,17 +15,18 @@ module RequestSpecHelper
         logout(warden_scope(resource))
     end
 
-    def json 
+    def json
         JSON.parse(response.body).with_indifferent_access
     end
 
     private
+
     def warden_scope(resource)
         resource.class.name.underscore.to_sym
     end
 end
 
-Rspec.configure do |config|
+RSpec.configure do |config|
     config.include RequestSpecHelper, type: :request
-    config.before(:each, type: :request) (host: "localhost:3000")
+    config.before(:each, type: :request) { host! "localhost:3000" }
 end
