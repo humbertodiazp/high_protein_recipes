@@ -9,7 +9,16 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def home
+    if user_signed_in?
+      @recipe = current_user.recipes.build
+      @recipes = Recipe.order(created_at: :desc).limit(3)
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
+    
 
+  end
+  
 
   def show
     @recipe = Recipe.find(params[:id])
