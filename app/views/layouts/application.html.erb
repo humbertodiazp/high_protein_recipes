@@ -4,11 +4,11 @@
       <%= render 'shared/head' %>
   </head> 
 
-  <body class=' bg-lm-1 text-dm-1 dark:bg-dm-1 dark:text-lm-1 h-screen w-screen  bg-gray-200' >
+  <body class=' bg-lm-1 text-dm-1 dark:bg-dm-1 dark:text-lm-1 h-screen w-screen  bg-gray-200' data-controller="navbar" >
     
     <%= render 'shared/nav' %>
     
-    <div class="w-full <%= main_layout %>">
+    <div id="main" class="w-full <%= main_layout %>" >
       <div class="w-full <%= right_content %>">
         <%= render 'shared/flash' %>
         <div class='<%= grid_layout %>'>
