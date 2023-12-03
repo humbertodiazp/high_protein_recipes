@@ -19,8 +19,8 @@ class CommentsController < ApplicationController
     def destroy
         @comment.destroy
         respond_to do |format|
-          format.turbo_stream {}
-          format.html { redirect_to @comment.commentable }
+            format.turbo_stream {}
+            format.html { redirect_to @comment.commentable }
         end
     end
 
