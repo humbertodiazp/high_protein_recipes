@@ -24,7 +24,7 @@ class RelationshipNotification < Noticed::Base
   end
   
   def url 
-    relationship_path(params[:relationship])
+    user_path(params[:relationship]&.follower)
   end
   
 end
