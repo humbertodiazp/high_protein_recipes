@@ -1,23 +1,27 @@
-<div>
+
+<div class=" w-full p-2 mr-4 pb-20 pr-20   duration-500 my-4 py-3 px-2 ">
+    
     <header>
         <div class="mx-auto mb-10 max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">
+            <h1 class=" font-sanchez text-3xl font-bold leading-tight tracking-tight text-gray-900">
                 Shopping Lists
             </h1>
         </div>
-    </header>        
-    <div class="flex m-4 flex-col gap-4">
-        <% @shopping_lists.each do |shopping_list| %>
-            <div class="flex gap-2 justify-between">
-                <div class="flex bg-white shadow-md rounded-md p-4">
-                <%= shopping_list.name %>
-                <div class="flex justify-end ml-2">
-                    <%= link_to "View", shopping_list, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-1 rounded" %>
-                </div>
+    </header>    
+    
+    <div class="flex columns-2  mt-2 mb-2 ">
+            <div class="flex w-1/2 max-h-min max-w-screen-sm justify-between  ml-20 gap-2 ">
+                <% @shopping_lists.each do |shopping_list| %>   
+                        <div class=" text-xl text-font-extrabold font-sanchez text-black border-orange-300 border-4  bg-orange-200 opacity-4 rounded-[12px]      duration-500">
+                            <div class="m-2 underline underline-offset-8 ">
+                                <%= shopping_list.name %>
+                            </div>                      
+                            <div class="flex  font-sanchez text-sm ">
+                                <%= link_to "View", shopping_list, class: "flex mb-2 ml-2 mt-20 bg-orange-600 text-md  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+                            </div>
+                        </div>
+                <% end %>
             </div>
-
-            </div>
-        <% end %>
-    </div>
+        </div>
 </div>
-<%= link_to "Back", root_path, class: " justify-start mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %> 
+<%= link_to "Back", root_path, class: "fixed justify-end mt-10 bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %> 
