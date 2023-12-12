@@ -43,7 +43,19 @@
             </span>
           </div>
         <% end %>
-      </li>            
+      </li>        
+      <li class=" text-gray-600  mx-1 my-3 text-xl py-2 px-1 hover:bg-gray-400 w-fit  rounded-3xl duration-500 flex items-center gap-3">
+        <%= link_to recipes_path do %>
+          <div class="flex items-center"> <!-- Add a flex container -->
+            <span class="material-symbols-outlined">
+                explore
+            </span>
+            <span class="mx-3">
+              All Recipes
+            </span>
+          </div>
+        <% end %>
+      </li>      
       <!-- new recipe link -->
       <li class=" text-gray-600  mx-1 my-3 text-xl py-2 px-1 hover:bg-gray-400 w-fit  rounded-3xl duration-500 flex items-center gap-3">
         <%= link_to new_recipe_path do %>
@@ -78,10 +90,11 @@
             <div class="flex items-center relative"> <!-- Add a flex container with relative positioning -->
               <span class="material-symbols-outlined relative">
                 favorite
-                <% if current_user.notifications.count > 0 %>
+                <% if current_user.unread_notifications %>
                   <!-- Add a span for the notification count overlay -->
                   <span class="bg-red-500 font-sanchez font-extrabold text-white text-center text-xs rounded-full px-1 absolute -top-1 -right-1">
-                    <%= current_user.notifications.count %>
+
+                    <%= current_user.unread_notifications_count %>
                   </span>
                 <% end %>
               </span>
