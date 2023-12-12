@@ -47,7 +47,7 @@ class User < ApplicationRecord
   # Follows a user.
   def follow(other_user)
     relationship = active_relationships.create(followed_id: other_user.id)
-    notify other_user, relationship
+    # notify_user other_user, relationship
     
     # :new_follower, recipient: other_user, actor: self, related: relationship
   end
@@ -62,5 +62,14 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  def unread_notifications
+    notifications.unread.any?
+  end
+
+  def unread_notifications_count
+    notifications.unread.count
+  end
+
 
 end
