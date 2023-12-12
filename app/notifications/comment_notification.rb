@@ -9,7 +9,7 @@ class CommentNotification < Noticed::Base
   param :comment
 
   def comment
-    params[:comment]&.body
+    params[:comment]
   end
   
   def url
