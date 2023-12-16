@@ -1,34 +1,19 @@
-<li>
-  <div class="mt-10 bg-slate-100 border-2 border-slate-700 w-1/3 p-2">
-    <% current_user.notifications.order(created_at: :desc).limit(30).each do |notification| %>
-      <div class="bg-slate-200 border-2 border-slate-700 p-2">
-        <% case notification.to_notification %>
-        <% when CommentNotification %>
-          <p class="text-gray-700">
-          <%# // what is the code for a link_to to the user who commented on your post here ? %>
-          <%= link_to notification.to_notification.comment.user.full_name, notification.to_notification.comment.user %> commented on your post.
-          </p>
-        <% when RelationshipNotification %>
-          <p class="text-gray-700">
-            <%= link_to notification.to_notification.relationship, notification.to_notification.url %> started following you.
-          </p>
-        <% end %>
-        <div class="flex justify-between mt-1 text-gray-500 text-sm space-x-4">
-          <p>
-            Received on <%= notification.created_at.to_date %>
-          </p>
-          <p>
-            <% if notification.unread? %>
-              Status: Unread
-            <% end %>
-          </p>
-          <p>
-            <% if notification.unread? %>
-              <%= link_to "Mark as read", notification_path(notification), method: :put, class: "text-blue-500 hover:text-blue-700" %>
-            <% end %>
-          </p>
-        </div>
-      </div>
+
+<div>
+  <div>
+    <%= link_to notification.to_notification.message, notification.to_notification.url %>
+  </div>
+  <div>
+    Received on <%= notification.created_at.to_date %>
+  </div>
+  <div>
+    <% if notification.unread? %>
+      Status: Unread
     <% end %>
   </div>
-</li>
+  <div>
+    <% if notification.unread? %>
+      <%= link_to "Mark as read", notification_path(notification), method: :put, class: "text-blue-500 hover:text-blue-700" %>
+    <% end %>
+  </div>
+</div>
