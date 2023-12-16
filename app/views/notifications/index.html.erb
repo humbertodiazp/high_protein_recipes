@@ -1,6 +1,7 @@
-<%= turbo_frame_tag "notifications" do %>
-  <h1 class="font-bold text-black text-2xl">Notifications</h1>
-  <ul>
-    <%= render @notifications %>
-  </ul>
+<h1 class="font-bold text-2xl mb-4"> Notifications </h1>
+
+<% @notifications.each do |notification| %>
+  <% if notification.type == "CommentNotification" || notification.type == "RelationshipNotification" || notification.type == "LikeNotification" %>
+    <%= render partial: "notifications/notification", locals: { notification: notification } %>
+  <% end %>
 <% end %>
