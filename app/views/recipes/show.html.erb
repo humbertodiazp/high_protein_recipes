@@ -62,6 +62,7 @@
       <%# add to  shopping list  %>
       <div>
       <%= form_tag(add_to_shopping_list_recipe_path(@recipe), method: :post) do %>
+        <%if user_signed_in? %> 
         <div class="ml-10">
           <div>
             <%= label_tag 'shopping_list_id', 'Select or Add new Shopping List', class:" font-sanchez" %>
@@ -71,6 +72,11 @@
           
           <%= submit_tag 'Add to Shopping List', class: "bg-orange-400 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50 " %>
         </div>
+        <% else %>
+          <div class="flex justify-center">
+
+          </div>
+        <% end %>
       <% end %>
 
       </div>
@@ -88,11 +94,9 @@
   </div>
 
   <%# initial comment form %>
-  <div class="flex justify-left ml-4 ">
+  <div class="justify-left ml-4 ">
     <div class=" max-h-fit w-9/12 overflow-y-auto bg-white-800  shadow-md dark:bg-dm-2 dark:shadow-none rounded-[6px] duration-500 my-3 py-3 px-4 border border-gray-100 dark:border-gray-700">
-      <h4 class="text-gray-400 dark:text-gray-600 my-3 break-words">
-        Comments 
-      </h4>
+
       <% if user_signed_in? %>
         <div class="text-gray-600">
           <%= render partial: "comments/form", locals: { comment: Comment.new, commentable: @recipe } %>
@@ -103,11 +107,12 @@
         </p>
       <% end %>
     </div>
-    <%=turbo_stream_from @recipe, :comments%>
+
+  </div>
+      <%=turbo_stream_from @recipe, :comments%>
     <%= tag.div id: "#{dom_id(@recipe)}_comments" do %>
       <%= render partial: "comments/comment_with_replies", collection: @recipe.comments.where(parent_id: nil), as: :comment%>
     <% end %>
-  </div>
 </div>
 
 
