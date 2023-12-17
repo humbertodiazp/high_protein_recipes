@@ -105,8 +105,8 @@
           <%= render partial: "comments/form", locals: { comment: Comment.new, commentable: @recipe } %>
         </div>
       <% else %>
-        <p class="text-gray-800 dark:text-gray-600 my-3 break-words">
-          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %> to comment 
+        <p class="text-gray-400 font-bold text-center dark:text-gray-400 my-3 break-words">
+          <%= link_to "Log In", new_user_session_path %> to comment 
         </p>
       <% end %>
     </div>
