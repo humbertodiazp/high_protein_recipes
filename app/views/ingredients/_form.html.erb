@@ -1,4 +1,3 @@
-
 <%= turbo_frame_tag "ingredient_#{form.index}" do %>
   <%= form.hidden_field :id %>
 
@@ -10,15 +9,15 @@
 
     <div>
       <%= form.label "QTY", class: "mt-1 block text-xs font-small text-gray-900" %>
-      <%= form.select :quantity, options_for_select((1..10).to_a), class: " rounded-md border text-xs text-gray-900 shadow-sm focus:ring focus:ring-indigo-600" %>
+      <%= form.select :quantity, options_for_select([[nil, ""], ["1/2", 0.5], ["1/4", 0.25], ["1/8", 0.125] ] + (1..10).to_a.map { |n| [n.to_s, n] }  ), class: "rounded-md border text-xs text-gray-900 shadow-sm focus:ring focus:ring-indigo-600" %>
     </div>
+  <div class="h-2 text-xs w-1/2">
+    <%= form.label "Units", class: "mt-1 rounded-md block text-xs font-small text-gray-900" %>
+    <div class="h-8 rounded-md">
+      <%= form.select :measurement, options_for_select(['','cup', 'cups', 'tbsp', 'tbsps', 'tspn', 'tspns', 'lb', 'lbs', 'oz', 'ozs'].map { |m| [m, m] }, prompt: 'Select Unit'), class: "border py-1 text-xs text-gray-900 shadow-sm focus:ring focus:ring-indigo-600" %>
+    </div>
+  </div>
 
-    <div class="h-2 text-xs w-1/2">
-      <%= form.label "Units", class: "mt-1 rounded-md block text-xs font-small text-gray-900" %>
-      <div class="h-8 rounded-md">
-        <%= form.select :measurement, options_for_select(['cups', 'tbls', 'tspns', 'lbs', 'ozs']), class: " border py-1 text-xs text-gray-900 shadow-sm focus:ring focus:ring-indigo-600" %>
-      </div>
-    </div>
 </div>
     
 
@@ -29,5 +28,3 @@
     data: { turbo_frame: "ingredient_#{form.index}" },
     class: " rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
 <%end%>
-
-
