@@ -1,0 +1,10 @@
+<div class="flex justify-center">
+    <% unless notice.nil? %>
+        <p class="notice bg-emerald-500 text-center text-white border-solid rounded-md w-fit m-auto py-2 px-3 my-3"><%= notice %></p>
+    <% end %>
+
+    <% unless alert.nil? %>
+        <p class="alert bg-red-500 text-center text-white border-solid rounded-md w-fit m-auto py-2 px-3 my-3"><%= alert %></p>
+    <% end %>
+
+</div>
