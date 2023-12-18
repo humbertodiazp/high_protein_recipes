@@ -1,4 +1,31 @@
-/* Tailwind Override
+/* .trix-content .attachment-gallery > action-text-attachment,
+.trix-content .attachment-gallery > .attachment {
+  flex: 1 0 33%;
+  max-width: 33%;
+  padding: 0 0.5em;
+}
+
+.trix-content .attachment-gallery.attachment-gallery--2 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--2 > .attachment, .trix-content .attachment-gallery.attachment-gallery--4 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--4 > .attachment {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+.trix-content action-text-attachment .attachment {
+  padding: 0 !important; 
+  max-width: 100% !important;
+} */
+
+
+
+
+
+
+
+
+
+/* Tailwind Override */
 .trix-content {
   width: 100%;
 }
@@ -127,4 +154,23 @@
   border-left-width: 0.3em;
   margin-left: 0.3em;
   padding-left: 0.6em;
+}
+/* trix-custom.css */
+
+/* Custom styles for unordered (bullet) lists */
+/* .trix-content ul {
+  list-style-type: disc; /* Change to your preferred bullet style */
+
+
+/* Custom styles for ordered (numbered) lists */
+/* .trix-content ol {
+  list-style-type: decimal; /* Change to your preferred numbering style */
+/* } */ 
+/* .trix-toolbar {
+  @apply p-2 bg-gray-200;
 } */
+
+/* Style the Trix editor content area with Tailwind classes */
+/* .trix-content {
+  @apply p-4 bg-white;
+}  */
