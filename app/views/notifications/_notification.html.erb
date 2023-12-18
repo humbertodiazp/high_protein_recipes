@@ -1,19 +1,24 @@
+<turbo-stream action="update", target="<%= dom_id notification %>">
+  <template>
+    <div id="<%= dom_id notification %>">
+      <div>
+        <%= link_to notification.to_notification.message, notification.to_notification.url %>
+      </div>
+      <div class="text-xs font-gray-200">
+        Received on <%= notification.created_at.to_date %>
+      </div>
+      <div class="text-xs font-gray-200">
+        <%# if notification.unread? %>
+          <%# Status: Unread %>
+        <%# end %>
+      </div>
 
-<div>
-  <div>
-    <%= link_to notification.to_notification.message, notification.to_notification.url %>
-  </div>
-  <div>
-    Received on <%= notification.created_at.to_date %>
-  </div>
-  <div>
-    <% if notification.unread? %>
-      Status: Unread
-    <% end %>
-  </div>
-  <div>
-    <% if notification.unread? %>
-      <%= link_to "Mark as read", notification_path(notification), method: :put, class: "text-blue-500 hover:text-blue-700" %>
-    <% end %>
-  </div>
-</div>
+      <div id="notification_actions_<%= notification.id %>" class="text-xs font-gray-200">
+        <% if notification.unread? %>
+          <%= link_to "Mark as read", notification_path(notification), method: :put, remote: true, class: "text-xs text-blue-500 hover:text-blue-700" %>
+        <% end %>
+      </div>
+
+    </div>
+  </template>
+</turbo-stream>
