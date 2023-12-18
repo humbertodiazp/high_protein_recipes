@@ -1,4 +1,5 @@
 <%= form_with(model: recipe, local: true) do |form| %>
+
   <% if recipe.errors.any? %>
     <div class="text-red-600">
       <h2 class="text-lg font-semibold mb-2"><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -9,42 +10,61 @@
       </ul>
     </div>
   <% end %>
-  <form>
-    <div class="space-y-6 p-10">
-      <div class="border-b border-gray-200 pb-6 shadow-xl rounded-2xl">
-        <div class="font-mono grid grid-cols-1 gap-4 sm:grid-cols-6 ml-4">
-          <div class="sm:col-span-4 max-w-screen-sm">
-            <%= form.label :name, class: "block text-sm font-medium text-gray-800" %>
+    <div class="space-y-6 p-4  ">
+      <div class="m-2 border-b border-gray-200 pb-4 md:pb-6 lg:pb-10 shadow-2xl rounded-2xl">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-6 ml-2 md:ml-4 lg:ml-6 font-mono">
+          <div class="mt-2 w-10/12 md:col-span-4">
+            <%= form.label "Title", class: "font-extrabold block text-sm  text-gray-600" %>
             <div class="mt-1">
-              <%= form.text_field :name, class: "w-1/2 px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-indigo-500 focus:ring-opacity-50" %>
+              <%= form.text_field :name, class: " px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-indigo-500 focus:ring-opacity-50" %>
             </div>
             <p class="mt-1 text-sm text-gray-500">Provide a unique title to your recipe.</p>
           </div>
 
-          <div class=" font-comic-neue col-span-6 max-w-screen-lg">
-            <%= form.label :content, class: "block text-sm font-medium text-gray-800" %>
+          <div class="justify-center ml-2 w-11/12  col-span-6">
+            <%= form.label "Instructions", class: "font-extrabold block text-sm text-gray-600" %>
             <div class="mt-1">
-              <%= form.rich_text_area :content, class: "w-full min-h-40 px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-indigo-500 focus:ring-opacity-50", style: "height: auto;" %>
+              <%= form.rich_text_area :content, class: " text-gray-600 mr-4  font-comic-neue w-full h-32 md:h-40 px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-indigo-500 focus:ring-opacity-50" %>
             </div>
             <p class="mt-1 text-sm text-gray-500">Give detailed instructions on how to prepare your recipe.</p>
           </div>
         </div>
 
-        <div class="m-4 font-mono">
-          <h4 class="text-lg font-semibold  text-gray-800">Ingredients</h4>
-          <div id="ingredients" class="w-7/12">
-            <%= form.fields_for :ingredients do |ingredient_form| %>
-              <%= render "ingredients/form", form: ingredient_form %>
-            <% end %>
+        <div  class='m-2 md:m-2 lg:m-6'>
+          <%= render "image_preview", form: form, recipe: recipe %>
+        </div>
+        
+        <div class='m-2 md:m-4 lg:m-6'>
+          <div class="flex justify-between">
+            <h4 class="flex font-semibold text-gray-800">Ingredients</h4>
+
           </div>
+        
+          
+          <div  id="ingredients" class="  ml-2 w-8/12" >
+            <div>
+            <%= form.fields_for :ingredients do |ingredient_form| %>
+              <%= render "ingredients/form",  form: ingredient_form %>
+            <% end %>
+            </div>
         </div>
-        <div class="flex justify-end">
-          <%= form.submit "Save Recipe", class: "bg-indigo-500 mr-4 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50" %>
-        </div>
+                    <div class="flex justify-start ml-2 mt-10">
+              <%= form.submit "add",
+              formaction: ingredient_path(@recipe.ingredients.size),
+              formmethod: :post,
+              formnovalidate: true,
+              id: "add-ingredient",
+              class: " rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+            </div>
+
       </div>
-      <div class="mt-6">
-        <%= link_to "Back", recipes_path, class: "bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring focus:ring-gray-400 focus:ring-opacity-50" %>
+    
+ 
+
+      <div class="flex justify-center  ">
+        <%= form.submit "Update Recipe", class: "bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50" %>
       </div>
-    </div>
-  </form>
+      <div class=" flex justify-center mt-2">
+        <%= link_to "Back", recipe_path(recipe), class: "bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring focus:ring-gray-400 focus:ring-opacity-50" %>
+      </div>
 <% end %>
