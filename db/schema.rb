@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_11_15_013053) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -50,9 +53,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_013053) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "commentable_type", null: false
-    t.integer "commentable_id", null: false
+    t.bigint "commentable_id", null: false
     t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -64,16 +67,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_013053) do
     t.string "description"
     t.string "quantity"
     t.string "measurement"
-    t.integer "recipe_id", null: false
+    t.bigint "recipe_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
+    t.bigint "record_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["record_type", "record_id"], name: "index_likes_on_record"
@@ -82,7 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_013053) do
 
   create_table "notifications", force: :cascade do |t|
     t.string "recipient_type", null: false
-    t.integer "recipient_id", null: false
+    t.bigint "recipient_id", null: false
     t.string "type", null: false
     t.json "params"
     t.datetime "read_at"
@@ -93,7 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_013053) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "location"
     t.string "name"
     t.string "bio"
@@ -108,7 +111,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_013053) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.integer "likes_count", default: 0
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
@@ -125,8 +128,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_013053) do
 
   create_table "shopping_list_items", force: :cascade do |t|
     t.string "description"
-    t.integer "shopping_list_id", null: false
-    t.integer "ingredient_id", null: false
+    t.bigint "shopping_list_id", null: false
+    t.bigint "ingredient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ingredient_id"], name: "index_shopping_list_items_on_ingredient_id"
@@ -135,7 +138,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_013053) do
 
   create_table "shopping_lists", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_shopping_lists_on_user_id"
