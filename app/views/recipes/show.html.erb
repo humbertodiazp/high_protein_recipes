@@ -3,23 +3,6 @@
   <%# save & share button %>
   <div class="flex justify-end     " >
 
-    <div class="flex justify-end gap-2 mt-1 ">
-      <div class="flex justify-between">
-        <span class="material-symbols-outlined">
-        send
-        </span>
-        <p class="text-xs text-gray-800">
-          Share
-        </p>
-      </div>
-      <div class="flex justify-between">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 fill-orange-300">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-        </svg>
-        <p class="text-xs text text-gray-800">
-          Save
-        </p>
-      </div>
       <div class="flex ml-4 hover ">
       <% if current_user == @recipe.user %> 
         <%= link_to "Edit", edit_recipe_path(@recipe), class: "hover:text-gray-600 text-gray-400  "%>
@@ -40,19 +23,21 @@
   <div class='  gap-1  '>
 
     <div class="flex justify-center pr-1">
-        <%= image_tag(@recipe.image.variant(resize_to_limit: [600, 600])) if @recipe.image.attached? %>   
+        <%= image_tag(@recipe.image.variant(resize_to_limit: [800, 800])) if @recipe.image.attached? %>   
     </div>
     <div class="flex  flex-col justify-center mb-20  gap-2 pl-2  w-11/12 ">
       <div class="flex  border-4 md:border-dotted border-amber-500 bg-orange-100   rounded-2xl shadow-md p-10 m-5 ">
         <div class="flex flex-col font-bold text-black-800 0 my-3 break-words">
           <div class="flex font-sanchez text-center p-1">
-            <strong> <%= @recipe.name %> Ingredients </strong>
+            <strong> <%= @recipe.name %> Ingredient List </strong>
           </div>
           <ul class="text-l font-normal text-black-400 my-3 break-words list-disc m-3 py-2 px-4">
             <% @recipe.ingredients.each do |ingredient| %>
               <li class=" font-extrabold  text-green-500 "> 
                 <div class="text-black font-normal ">
                   <%= ingredient.description  %>
+                  <%= ingredient.quantity %>
+                  <%= ingredient.measurement %>
                 </div>
               </li>
             <% end %>
