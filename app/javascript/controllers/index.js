@@ -10,9 +10,6 @@ application.register("comment-reply", CommentReplyController)
 import FlashController from "./flash_controller"
 application.register("flash", FlashController)
 
-import HideNotificationCountController from "./hide_notification_count_controller"
-application.register("hide-notification-count", HideNotificationCountController)
-
 import MarkAsReadController from "./mark_as_read_controller"
 application.register("mark-as-read", MarkAsReadController)
 
