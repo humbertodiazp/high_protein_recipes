@@ -90,10 +90,9 @@
             <div class="flex items-center relative"> <!-- Add a flex container with relative positioning -->
               <span class="material-symbols-outlined relative">
                 favorite
-                <% if current_user.unread_notifications %>
+                <% if current_user.unread_notifications_count > 0 %>
                   <!-- Add a span for the notification count overlay -->
                   <span class="bg-red-500 font-sanchez font-extrabold text-white text-center text-xs rounded-full px-1 absolute -top-1 -right-1">
-
                     <%= current_user.unread_notifications_count %>
                   </span>
                 <% end %>
@@ -104,7 +103,7 @@
             </div>
           <% end %>
         <% else %>
-          <%= link_to sign_up_path do %>
+          <%= link_to new_user_session_path do %>
             <div class="flex items-center"> <!-- Add a flex container -->
               <span class="material-symbols-outlined">
                 favorite
@@ -232,7 +231,7 @@
             </div>
           <% end %>
         <% else %>
-          <%= link_to sign_up_path do %>
+          <%= link_to new_user_session_path do %>
             <div class="flex items-center"> <!-- Add a flex container -->
               <span class="material-symbols-outlined">
                 favorite
