@@ -1,7 +1,15 @@
-<h1 class="font-bold text-2xl mb-4"> Notifications </h1>
+<!-- app/views/notifications/index.html.erb -->
+<div class="w-fit p-2 pb-2 rounded-2xl text-gray-700 text-base">
 
-<% @notifications.each do |notification| %>
-  <% if notification.type == "CommentNotification" || notification.type == "RelationshipNotification" || notification.type == "LikeNotification" %>
-    <%= render partial: "notifications/notification", locals: { notification: notification } %>
+  <h1 class="font-bold text-2xl mb-4"> Notifications </h1>
+
+
+  <% @notifications.order(created_at: :desc).each do |notification| %>
+    <% if notification.type == "CommentNotification" || notification.type == "RelationshipNotification" || notification.type == "LikeNotification" %>
+      <div id="notification_<%= notification.id %>" class="w-relative font-bold text-slate-600 mb-2 border-b-2 border-gray-200">
+        <%= render partial: "notifications/notification",  collection: @notifications %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
