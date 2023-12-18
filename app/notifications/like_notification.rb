@@ -4,14 +4,15 @@ class LikeNotification < Noticed::Base
   def to_database
     {
       type: self.class.name,
-      params: params,
+      params: params
     }
+
   end
 
   param :like
 
   def message
-    t(".message")
+    "#{params[:like]&.user&.full_name} liked your recipe"
   end
 
   def url

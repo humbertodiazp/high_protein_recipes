@@ -1,6 +1,3 @@
-# To deliver this notification:
-#
-# NewFollower.with(follower: @user, followed: @followed).deliver_later(current_useruser)
 
 # (user: @user).deliver_later(current_user)
 # NewFollower.with(post: @post).deliver(current_user)
@@ -15,17 +12,24 @@ class RelationshipNotification < Noticed::Base
 
   # Add required params
   #
+  def to_database
+    {
+      type: self.class.name,
+      params: params 
+    }
+  end
+
   param :relationship
 
   # Define helper methods to make rendering easier.
   #
-  def relationship
-    params[:relationship]&.follower&.full_name
+  def message
+    "#{params[:relationship]&.follower&.full_name} started following you"
   end
   
   def url 
-    user_path(params[:relationship]&.follower)
-  end
+    follower = params[:relationship]&.follower
+    user_path(follower) if follower.present?  end
   
 end
 

@@ -1,18 +1,28 @@
-# To deliver this notification:
-#
-# CommentNotification.with(post: @post).deliver_later(current_user)
-# CommentNotification.with(post: @post).deliver(current_user)
-
 class CommentNotification < Noticed::Base
-  deliver_by :database
+  deliver_by :database, format: :to_database
+
+  def to_database
+    {
+      type: self.class.name,
+      params: params
+    }
+  end
 
   param :comment
 
-  def comment
-    params[:comment]
+  def message
+    "#{params[:comment]&.user&.full_name} commented on your recipe"
   end
-  
+
   def url
-    comment_path(params[:comment])
+    commentable = params[:comment].commentable
+    user = params[:comment].user
+
+    if commentable.is_a?(Recipe)
+      recipe_path(commentable)
+    else
+      
+    end
   end
+
 end
