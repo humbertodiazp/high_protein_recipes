@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
 
   respond_to :html
@@ -23,7 +23,9 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @comments = @recipe.comments
-    @user_shopping_lists = current_user.shopping_lists
+    if user_signed_in?
+      @user_shopping_lists = current_user.shopping_lists
+    end
     render layout: 'no_nav'
   end
   
@@ -36,6 +38,7 @@ class RecipesController < ApplicationController
   
 
   def edit
+    @recipe = Recipe.find(params[:id])
     
     render layout: 'no_nav' 
 
@@ -52,6 +55,42 @@ class RecipesController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
+        format.json { render :show, status: :ok, location: @recipe }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # def update
+  #   respond_to do |format|
+  #     if @recipe.update(recipe_params)
+  #       format.turbo_stream do
+  #         render turbo_stream: turbo_stream.redirect(@recipe, partial: 'no_image_form', locals: { recipe: @recipe })
+  #       end
+  #       format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @recipe }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @recipe.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+  
+
+  def destroy
+    @recipe.destroy
+    respond_to do |format|
+      format.html { redirect_to recipes_url, notice: 'Recipe was successfully deleted.' }
+      format.json { head :no_content }
     end
   end
 
@@ -93,28 +132,7 @@ class RecipesController < ApplicationController
   
   
 
-  def update
-    respond_to do |format|
-      if @recipe.update(recipe_params)
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.redirect(@recipe)
-        end
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
-  def destroy
-    @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully deleted.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
   
