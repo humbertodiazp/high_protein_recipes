@@ -6,7 +6,9 @@ class Like < ApplicationRecord
   after_create_commit :notify_user
 
   def notify_user
-    LikeNotification.with(like: self).deliver_later(record.user)
+    if user != record.user
+      LikeNotification.with(like: self).deliver_later(record.user)
+    end 
   end
 
   def likeable
