@@ -1,16 +1,30 @@
-<h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+<section class="">
+  <div class="flex flex-col items-center justify-start  mx-auto md:h-screen lg:py-0">
+      <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-gray">
+              <svg class="flex text-left w-8 h-8 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="1.4169999999999998 8.164 29.166000000000004 15.671999999999999">
+                <path d="M23.184 8.164c-1.294 0-2.366 2.826-2.573 6.531h-9.22c-0.208-3.705-1.279-6.531-2.574-6.531H7.538C8.809 9.513 9.47 12.768 9.47 16c0 3.231-0.661 6.486-1.932 7.836h1.279c1.294 0 2.366-2.826 2.573-6.53h9.221c0.208 3.704 1.279 6.53 2.573 6.53 1.442 0 2.611-3.509 2.611-7.836C25.795 11.672 24.626 8.164 23.184 8.164zM28.407 9.47h-1.17c-0.413-0.824-0.909-1.306-1.442-1.306h-1.279c1.271 1.349 1.933 4.604 1.933 7.836 0 3.231-0.661 6.486-1.933 7.836h1.279c0.533 0 1.029-0.482 1.442-1.306h1.17c1.201 0 2.176-2.924 2.176-6.53S29.608 9.47 28.407 9.47zM3.593 9.47c-1.201 0-2.176 2.924-2.176 6.53s0.975 6.53 2.176 6.53c1.203 0 2.177-2.924 2.177-6.53S4.795 9.47 3.593 9.47zM3.593 17.306c-0.361 0-0.653-0.584-0.653-1.306 0-0.721 0.292-1.306 0.653-1.306S4.246 15.279 4.246 16C4.246 16.722 3.954 17.306 3.593 17.306zM6.205 8.164c-0.517 0-0.998 0.459-1.402 1.238 1.104 1.179 1.62 3.962 1.62 6.598 0 2.637-0.515 5.419-1.62 6.598 0.404 0.778 0.885 1.238 1.402 1.238 1.442 0 2.612-3.509 2.612-7.836C8.817 11.672 7.647 8.164 6.205 8.164z" fill="currentColor"></path>
+              </svg>
+          High Protein Recipes    
+      </a>
+      <div class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
+          <h2 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              Forgot your password?
+          </h2>
+          <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="#">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <div class="field">
+              <%= f.label 'Your email', class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"%>
+            </div>
+            <div class="bg-gray-500 hover:bg-gray-600 text-white font-semibold mt-1 py-2 px-4 rounded-lg shadow focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50"%>
+              <%= f.submit 'Reset Password' %>
+            </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+          </form>
+      </div>
   </div>
+</section>
 <% end %>
-
-<%= render "devise/shared/links" %>
