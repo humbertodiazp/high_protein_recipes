@@ -32,11 +32,6 @@
 en:
   hello: "Hello world"
   notifications: 
-    relationship:
-      message: "You have a new follower"
-    comment:
-      message: "You have a new comment on your recipe"
-      
-    
+
 
 
