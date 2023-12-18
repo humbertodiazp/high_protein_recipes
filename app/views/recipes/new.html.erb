@@ -1,4 +1,14 @@
-
-<%= render "form", recipe: @recipe %>
+<% if user_signed_in? %>
+    <%= render "form", recipe: @recipe %>
+<% else %>
+    <div class="flex justify-center">
+        <div class="flex flex-col items-center justify-center w-1/2 p-4 m-4 bg-white rounded-lg shadow-lg">
+        <h2 class="text-3xl font-semibold text-gray-800">You must be logged in to submit a recipe.</h2>
+        <div class="flex justify-center">
+            <%= link_to "Log in", new_user_session_path, class: "bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50" %>
+        </div>
+        </div>
+    </div>
+<% end %>
 
 
