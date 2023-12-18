@@ -7,6 +7,18 @@ import { application } from "./application"
 import CommentReplyController from "./comment_reply_controller"
 application.register("comment-reply", CommentReplyController)
 
+import FlashController from "./flash_controller"
+application.register("flash", FlashController)
+
+import HideNotificationCountController from "./hide_notification_count_controller"
+application.register("hide-notification-count", HideNotificationCountController)
+
+import MarkAsReadController from "./mark_as_read_controller"
+application.register("mark-as-read", MarkAsReadController)
+
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
+
 import PreviewsController from "./previews_controller"
 application.register("previews", PreviewsController)
 
