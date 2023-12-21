@@ -63,6 +63,8 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+  config.assets.debug = true
+
 
   #letter opener for devise emails 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }

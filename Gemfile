@@ -17,7 +17,6 @@ gem 'pg'
 gem "puma", "~> 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
@@ -90,7 +89,6 @@ gem "omniauth-rails_csrf_protection"
 
 gem "tailwindcss-rails", "~> 2.0"
 
-gem "jsbundling-rails", "~> 1.1"
 
 gem "letter_opener_web"
 
@@ -98,4 +96,4 @@ gem 'will_paginate' , '~> 3.1.0'
 
 gem "noticed", "~> 1.6"
 
-
+gem "jsbundling-rails"

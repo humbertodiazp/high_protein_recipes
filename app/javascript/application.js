@@ -1,8 +1,10 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "trix"
 import "@hotwired/turbo-rails"
 import "./controllers"
-import "@rails/actiontext"
+
+
+console.log("Hello from app/javascript/application.js")
+
 // import "./custom/menu"
 // import "./custom/nav_links"
 
