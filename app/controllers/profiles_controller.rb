@@ -23,9 +23,9 @@ class ProfilesController < ApplicationController
     
     def update
         if @profile.update(profile_params)
-        redirect_to @profile, notice: 'Profile was successfully updated.'
+        redirect_to @current_user, notice: 'Profile was successfully updated.'
         else
-        redirect_to @profile, notice: 'Profile was not updated.'
+        redirect_to @current_user, notice: 'Profile was not updated.'
         end
     end
     
