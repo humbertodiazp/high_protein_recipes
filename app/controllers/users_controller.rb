@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
     before_action :set_user
+    skip_before_action :protect_from_forgery, raise: false
 
     def index
         @users = User.all
