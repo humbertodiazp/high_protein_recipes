@@ -21,7 +21,8 @@
 
 
 
-@import "trix";
+@import "actiontext";
+@import "trix/dist/trix.css";
 
 
 
