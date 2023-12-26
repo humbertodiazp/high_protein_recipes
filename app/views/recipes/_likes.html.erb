@@ -1,6 +1,12 @@
-<%= tag.div class: 'flex text-xs text-gray-800', id: dom_id(recipe, :likes)   do  %>
-        <%= recipe.likes_count %>
+<%= tag.div class: ' text-xs text-gray-800', id: dom_id(recipe, :likes)   do  %>
+    <div class="flex ml-8 ">
+        <div class="flex ml-8">
+            <%= recipe.likes_count %>
+        </div>
         <div class="flex">
             <%= button_to like_button_text(recipe),  recipe_like_path(recipe),  method: :patch  %> 
         </div>
+
+    </div>
+
 <% end %>
