@@ -1,7 +1,7 @@
 <div class=" mt-2"> 
 
   <%# save & share button %>
-  <div class="flex justify-end     " >
+  <div class="flex     " >
 
       <div class="flex ml-4 hover ">
       <% if current_user == @recipe.user %> 
@@ -12,7 +12,7 @@
   </div>
 
   <%# recipe name %>
-  <div class="flex flex-col mb-10  " >
+  <div class="flex  justify-end flex-col mb-10  " >
     <div class="flex font-bold text-4xl  font-sanchez">
       <%= @recipe.name %>
     </div>
@@ -25,24 +25,28 @@
     <div class="flex justify-center pr-1">
         <%= image_tag(@recipe.image.variant(resize_to_limit: [800, 800])) if @recipe.image.attached? %>   
     </div>
-    <div class="flex  flex-col justify-center mb-20  gap-2 pl-2  w-11/12 ">
-      <div class="flex  border-4 md:border-dotted border-amber-500 bg-orange-100   rounded-2xl shadow-md p-10 m-5 ">
-        <div class="flex flex-col font-bold text-black-800 0 my-3 break-words">
-          <div class="flex font-sanchez text-center p-1">
-            <strong> <%= @recipe.name %> Ingredient List </strong>
-          </div>
-          <ul class="text-l font-normal text-black-400 my-3 break-words list-disc m-3 py-2 px-4">
-            <% @recipe.ingredients.each do |ingredient| %>
-              <li class=" font-extrabold  text-green-500 "> 
-                <div class="text-black font-normal ">
-                  <%= ingredient.description  %>
-                  <%= ingredient.quantity %>
-                  <%= ingredient.measurement %>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+    <%# add border%>
+    <div class="flex justify-center pt-4 pr-1">
+      <div class="w-8/12 h-1 bg-gray-200"></div>
+    </div>
+    <div class="mt-10  font-sanchez text-center p-1">
+      <strong>  Ingredient List </strong>
+    </div>
+    <div class="  mb-20  gap-2 pl-2  w-8/12 ">
+      <ul class="flex justify-center font-normal text-black-400 my-3 break-words list-disc m-3 py-2 px-4">
+        <div class=" font-bold text-black-800  my-3 break-words">
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li class="  font-extrabold  text-green-500 "> 
+              <div class="text-black font-normal ">
+                <%= ingredient.description  %>
+                <%= ingredient.quantity %>
+                <%= ingredient.measurement %>
+              </div>
+            </li>
+          <% end %>
         </div>
+      </ul>
+    </div>
       </div>
       <%# add to  shopping list  %>
       <div>
@@ -59,8 +63,7 @@
         </div>
         <% else %>
           <div class="flex justify-center text-gray-600 text-lg">
-            <%= link_to "Log In", new_user_session_path %> to add these ingredients to a shopping list.
-
+            <%= link_to "Log In to add these ingredients to a shopping list.", new_user_session_path %>   
           </div>
         <% end %>
       <% end %>
