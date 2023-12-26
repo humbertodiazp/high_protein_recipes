@@ -1,47 +1,33 @@
-<div class=" flex flex-col justify-between bg-white w-11/12 p-2 mr-4  shadow-md dark:bg-dm-2 dark:shad  rounded-[15px] duration-500 my-4 py-3 px-2 ">
+<div class="flex flex-col min-w-[350px] overflow-scroll bg-white p-2 mr-4 shadow-md dark:bg-dm-2 dark:shad rounded-[8px] duration-500 my-3 py-3 px-4">
   <div class="flex justify-between">
-      <strong class="text-xs dark:text-gray-300"><%= link_to recipe.user.full_name, user_path(recipe.user)  %></strong>
-      <p class="text-xs text-gray-800 dark:text-gray-300 justify-self-end"><%= time_ago_in_words(recipe.created_at) %> ago</p>
+    <strong class="text-xs dark:text-gray-300"><%= link_to recipe.user.full_name, user_path(recipe.user) %></strong>
+    <p class="text-xs text-gray-800 dark:text-gray-300 justify-self-end"><%= time_ago_in_words(recipe.created_at) %> ago</p>
   </div>
 
-  <div class="text-gray-800 dark:text-gray-800 my-3 break-words"> <%= link_to recipe.name,  recipe %></div>
+  <div class="text-gray-600 font-semibold dark:text-gray-600 my-3 break-words"><%= link_to recipe.name, recipe %></div>
 
   <div class='flex self-center mb-2'>
     <%= image_tag(recipe.image.variant(resize_to_limit: [300, 300])) if recipe.image.attached? %>   
   </div>
-  <div class="flex justify-evenly align-bottom gap-2 mt-4 ">
-    <div class="flex justify-between gap-1  ">
-      <%=  render "recipes/likes",  recipe: recipe %>
-    </div>
 
-    <div class="flex justify-between gap-1  ">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex w-6 h-6  ">
+  <div class="flex justify-evenly align-bottom mt-4">
+    <%= render "recipes/likes", recipe: recipe %>
+
+    <div class="flex justify-between gap-1">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
       </svg>
-      <span class="flex text-xs text-gray-800 "> <%= recipe.comments.count %> </span>
-      <p class="flex text-xs text-gray-800">Comments </p>
+      <span class="flex text-xs text-gray-800"><%= recipe.comments.count %></span>
+      <div class="flex flex-col justify-between gap-1 text-xs text-gray-800 mr-4">Comments</div>
     </div>
-    <div>
-      <div class="flex justify-between">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3"/>
-        </svg>
-        <p class="text-xs text-gray-800">
-          Share
-        </p>
-      </div>
-    </div>        
-    <div>
+
+    <%# <div class="flex">
       <div class="flex justify-between">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
         </svg>
-        <p class="text-xs text text-gray-800">
-          Save
-        </p>
       </div>
-    </div>
+      <div class="flex text-xs text-gray-800">Save</div>
+    </div> %>
   </div>
-
 </div>
-
