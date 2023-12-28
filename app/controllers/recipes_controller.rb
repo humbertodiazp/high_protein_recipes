@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    render layout: 'no_nav'
   end
 
   def home
