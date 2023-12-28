@@ -19,6 +19,11 @@ class Recipe < ApplicationRecord
     end
 
     def unlike(user)
-        likes.where(user: user).destroy_all
+        like_record = likes.find_by(user: user)
+    
+        if like_record
+            like_record.destroy
+            notifications.where("params @> ?", { type: "like", user_id: user.id }.to_jsonb).destroy_all
+        end
     end
 end
