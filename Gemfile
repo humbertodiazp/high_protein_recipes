@@ -99,3 +99,5 @@ gem "noticed", "~> 1.6"
 gem "jsbundling-rails"
 
 gem "aws-sdk-s3", require: false
+
+gem "sidekiq", "~> 7.2"
