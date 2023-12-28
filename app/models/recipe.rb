@@ -23,7 +23,7 @@ class Recipe < ApplicationRecord
     
         if like_record
             like_record.destroy
-            notifications.where("params @> ?", { type: "like", user_id: user.id }.to_jsonb).destroy_all
+            notifications.where("params @> ?", { type: "like", user_id: user.id }.to_jsonb.to_s).destroy_all
         end
     end
 end
