@@ -97,3 +97,5 @@ gem 'will_paginate' , '~> 3.1.0'
 gem "noticed", "~> 1.6"
 
 gem "jsbundling-rails"
+
+gem "aws-sdk-s3", require: false
