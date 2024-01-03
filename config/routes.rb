@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'recipes#index'
+  root 'recipes#home'
   devise_for :users,
               controllers: {
                 registrations: 'users/registrations',
@@ -58,5 +58,9 @@ Rails.application.routes.draw do
 
   # notification routes
   resources :notifications, only: [:index, :update, :show]
+
+  # cors preflight check 
+  match '*all', controller: 'application', action: 'cors_preflight_check', via: [:options]
+
 
 end 
