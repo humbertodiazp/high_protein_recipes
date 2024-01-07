@@ -11,43 +11,49 @@
 existing_user = User.find_by(email: 'hdkaratechop48@gmail.com')
 
 # Create recipes
-recipes = Recipe.create([
-    { name: 'Spaghetti Bolognese', user: existing_user },
-    { name: 'Chicken Caesar Salad', user: existing_user },
-    { name: 'Vegetarian Stir-Fry', user: existing_user },
-  ])
-  
-  # Create ingredients for Spaghetti Bolognese
-  ingredients_spaghetti = Ingredient.create([
-    { description: 'Spaghetti', quantity: '200g', measurement: 'grams', recipe: recipes.fourth },
-    { description: 'Ground beef', quantity: '300g', measurement: 'grams', recipe: recipes.fourth },
-    { description: 'Tomato sauce', quantity: '1 cup', measurement: 'cup', recipe: recipes.fourth },
-    { description: 'Onion', quantity: '1', measurement: 'piece', recipe: recipes.fourth },
-    { description: 'Garlic', quantity: '2 cloves', measurement: 'cloves', recipe: recipes.fourth },
-    { description: 'Olive oil', quantity: '2 tablespoons', measurement: 'tablespoons', recipe: recipes.fourth },
-  ])
-  
-  # Create ingredients for Chicken Caesar Salad
-  ingredients_caesar_salad = Ingredient.create([
-    { description: 'Chicken breasts', quantity: '2', measurement: 'pieces', recipe: recipes.fifth },
-    { description: 'Romaine lettuce', quantity: '1 head', measurement: 'head', recipe: recipes.fifth },
-    { description: 'Croutons', quantity: '1 cup', measurement: 'cup', recipe: recipes.fifth },
-    { description: 'Parmesan cheese', quantity: '1/2 cup', measurement: 'cup', recipe: recipes.fifth },
-    { description: 'Caesar dressing', quantity: '1/4 cup', measurement: 'cup', recipe: recipes.fifth },
-  ])
-  
-  # Create ingredients for Vegetarian Stir-Fry
-  ingredients_stir_fry = Ingredient.create([
-    { description: 'Tofu', quantity: '250g', measurement: 'grams', recipe: recipes.sixth },
-    { description: 'Broccoli', quantity: '1 head', measurement: 'head', recipe: recipes.sixth },
-    { description: 'Carrots', quantity: '2', measurement: 'pieces', recipe: recipes.sixth },
-    { description: 'Bell peppers', quantity: '2', measurement: 'pieces', recipe: recipes.sixth },
-    { description: 'Soy sauce', quantity: '3 tablespoons', measurement: 'tablespoons', recipe: recipes.sixth },
-    { description: 'Sesame oil', quantity: '1 tablespoon', measurement: 'tablespoon', recipe: recipes.sixth },
-  ])
-  
-  puts 'Recipes and ingredients have been created successfully!'
-  
+recipe_names = ['Spaghetti Bolognese', 'Chicken Caesar Salad', 'Vegetarian Stir-Fry']
+recipe_contents = [
+  'Delicious and hearty spaghetti bolognese recipe.',
+  'A classic and refreshing chicken caesar salad.',
+  'Healthy and flavorful vegetarian stir-fry with tofu and vegetables.'
+]
+
+recipes = []
+recipe_names.each_with_index do |name, index|
+  recipes << Recipe.create(name: name, content: recipe_contents[index], user: existing_user)
+end
+
+# Create ingredients for Spaghetti Bolognese
+ingredients_spaghetti = Ingredient.create([
+  { description: 'Spaghetti', quantity: '200g', measurement: 'grams', recipe: recipes.first },
+  { description: 'Ground beef', quantity: '300g', measurement: 'grams', recipe: recipes.first },
+  { description: 'Tomato sauce', quantity: '1 cup', measurement: 'cup', recipe: recipes.first },
+  { description: 'Onion', quantity: '1', measurement: 'piece', recipe: recipes.first },
+  { description: 'Garlic', quantity: '2 cloves', measurement: 'cloves', recipe: recipes.first },
+  { description: 'Olive oil', quantity: '2 tablespoons', measurement: 'tablespoons', recipe: recipes.first },
+])
+
+# Create ingredients for Chicken Caesar Salad
+ingredients_caesar_salad = Ingredient.create([
+  { description: 'Chicken breasts', quantity: '2', measurement: 'pieces', recipe: recipes.second },
+  { description: 'Romaine lettuce', quantity: '1 head', measurement: 'head', recipe: recipes.second },
+  { description: 'Croutons', quantity: '1 cup', measurement: 'cup', recipe: recipes.second },
+  { description: 'Parmesan cheese', quantity: '1/2 cup', measurement: 'cup', recipe: recipes.second },
+  { description: 'Caesar dressing', quantity: '1/4 cup', measurement: 'cup', recipe: recipes.second },
+])
+
+# Create ingredients for Vegetarian Stir-Fry
+ingredients_stir_fry = Ingredient.create([
+  { description: 'Tofu', quantity: '250g', measurement: 'grams', recipe: recipes.third },
+  { description: 'Broccoli', quantity: '1 head', measurement: 'head', recipe: recipes.third },
+  { description: 'Carrots', quantity: '2', measurement: 'pieces', recipe: recipes.third },
+  { description: 'Bell peppers', quantity: '2', measurement: 'pieces', recipe: recipes.third },
+  { description: 'Soy sauce', quantity: '3 tablespoons', measurement: 'tablespoons', recipe: recipes.third },
+  { description: 'Sesame oil', quantity: '1 tablespoon', measurement: 'tablespoon', recipe: recipes.third },
+])
+
+puts 'Recipes and ingredients have been created successfully!'
+
 
 # # Create likes
 # likes = Like.create([
