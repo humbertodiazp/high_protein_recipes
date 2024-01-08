@@ -201,7 +201,7 @@ ingredients_philly_cheesesteak = Ingredient.create([
     { description: '1 tsp chili powder', quantity: '', measurement: '', recipe: recipes.fifth },
     { description: '1/4 cup light cream cheese', quantity: '', measurement: '', recipe: recipes.fifth },
     { description: '1/3 cup fat free greek yogurt', quantity: '', measurement: '', recipe: recipes.fifth },
-    { description: '1/3 cup light mozzarella cheese', quantity: '', measurement: '', recipe: recipes.fifth },
+    { description: '1/3 cup light mozzarella cheese', quantity: '', measurement: '', recipe: recipes.fifth }
 ])
 
 ingredients_banana_oats = Ingredient.create([
