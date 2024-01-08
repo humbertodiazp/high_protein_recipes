@@ -162,7 +162,7 @@ ingredients_stir_fry = Ingredient.create([
     { description: 'Sesame oil', quantity: '1 tablespoon', measurement: 'tablespoon', recipe: recipes.third },
 ])
 
-ingredients_array = Ingredient.create([
+ingredients_chicken_burrito = Ingredient.create([
     { description: '2 chicken breast', quantity: '', measurement: '', recipe: recipes.fourth },
     { description: '1 tsp olive oil', quantity: '', measurement: '', recipe: recipes.fourth },
     { description: '1/2 tsp salt', quantity: '', measurement: '', recipe: recipes.fourth },
@@ -185,7 +185,7 @@ ingredients_array = Ingredient.create([
 ])
 
 
-ingredients_array = Ingredient.create([
+ingredients_philly_cheesesteak = Ingredient.create([
     { description: '2 cups water', quantity: '', measurement: '', recipe: recipes.fifth },
     { description: '1 tsp salt', quantity: '', measurement: '', recipe: recipes.fifth },
     { description: '1 & 1/4 cup any pasta', quantity: '', measurement: '', recipe: recipes.fifth },
@@ -204,7 +204,7 @@ ingredients_array = Ingredient.create([
     { description: '1/3 cup light mozzarella cheese', quantity: '', measurement: '', recipe: recipes.fifth },
 ])
 
-ingredients_array = Ingredient.create([
+ingredients_banana_oats = Ingredient.create([
     { description: '1/3 cup rolled oats', quantity: '', measurement: '', recipe: recipes.sixth },
     { description: '1/2 cup fat free greek yogurt', quantity: '', measurement: '', recipe: recipes.sixth },
     { description: '1/2 mashed banana', quantity: '', measurement: '', recipe: recipes.sixth },
@@ -214,7 +214,7 @@ ingredients_array = Ingredient.create([
     { description: '1 scoop vanilla protein powder', quantity: '', measurement: '', recipe: recipes.sixth }
 ])
 
-ingredients_array = Ingredient.create([
+ingredients_cheesecake_oats = Ingredient.create([
     { description: '1/3 cup rolled oats', quantity: '', measurement: '', recipe: recipes.seventh },
     { description: '1/2 cup fat free greek yogurt, plain', quantity: '', measurement: '', recipe: recipes.seventh },
     { description: '1/4 cup any milk', quantity: '', measurement: '', recipe: recipes.seventh },
@@ -228,7 +228,7 @@ ingredients_array = Ingredient.create([
     { description: '2 tspn granola/cereal', quantity: '', measurement: '', recipe: recipes.seventh }
 ])
 
-ingredients_array = Ingredient.create([
+ingredients_pancakes = Ingredient.create([
     { description: '1/2 cup rolled oats', quantity: '', measurement: '', recipe: recipes.eighth },
     { description: '1/4 cup milk', quantity: '', measurement: '', recipe: recipes.eighth },
     { description: '1/4 cup egg whites', quantity: '', measurement: '', recipe: recipes.eighth },
