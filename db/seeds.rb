@@ -171,7 +171,7 @@ ingredients_array = Ingredient.create([
     { description: '1/2 tsp cumin', quantity: '', measurement: '', recipe: recipes.fifth },
     { description: '1 tsp garlic powder', quantity: '', measurement: '', recipe: recipes.fifth },
     { description: '1 tsp paprika', quantity: '', measurement: '', recipe: recipes.fifth },
-    { description: 'Squeeze of half a lime', quantity: '', measurement: '', recipe: recipes.fifth }
+    { description: 'Squeeze of half a lime', quantity: '', measurement: '', recipe: recipes.fifth}, 
     { description: '3 tbsp light mayo', quantity: '', measurement: '', recipe: recipes.fourth },
     { description: '1 tbsp hot sauce', quantity: '', measurement: '', recipe: recipes.fourth },
     { description: '1/4 tsp chili powder', quantity: '', measurement: '', recipe: recipes.fourth },
