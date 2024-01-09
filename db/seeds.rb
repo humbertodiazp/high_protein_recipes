@@ -116,113 +116,113 @@ end
 
 # Create ingredients for Spaghetti Bolognese
 ingredients_spaghetti = Ingredient.create([
-    { description: 'Spaghetti', quantity: '200g', measurement: 'grams', recipe: recipes.recipes[0] },
-    { description: 'Ground beef', quantity: '300g', measurement: 'grams', recipe: recipes.recipes[0] },
-    { description: 'Tomato sauce', quantity: '1 cup', measurement: 'cup', recipe: recipes.recipes[0] },
-    { description: 'Onion', quantity: '1', measurement: 'piece', recipe: recipes.recipes[0] },
-    { description: 'Garlic', quantity: '2 cloves', measurement: 'cloves', recipe: recipes.recipes[0] },
-    { description: 'Olive oil', quantity: '2 tablespoons', measurement: 'tablespoons', recipe: recipes.recipes[0] },
+    { description: 'Spaghetti', quantity: '200g', measurement: 'grams', recipe: recipes[0] },
+    { description: 'Ground beef', quantity: '300g', measurement: 'grams', recipe: recipes[0] },
+    { description: 'Tomato sauce', quantity: '1 cup', measurement: 'cup', recipe: recipes[0] },
+    { description: 'Onion', quantity: '1', measurement: 'piece', recipe: recipes[0] },
+    { description: 'Garlic', quantity: '2 cloves', measurement: 'cloves', recipe: recipes[0] },
+    { description: 'Olive oil', quantity: '2 tablespoons', measurement: 'tablespoons', recipe: recipes[0] },
 ])
 
 # Create ingredients for Chicken Caesar Salad
 ingredients_caesar_salad = Ingredient.create([
-    { description: 'Chicken breasts', quantity: '2', measurement: 'pieces', recipe: recipes.recipes[1] },
-    { description: 'Romaine lettuce', quantity: '1 head', measurement: 'head', recipe: recipes.recipes[1] },
-    { description: 'Croutons', quantity: '1 cup', measurement: 'cup', recipe: recipes.recipes[1] },
-    { description: 'Parmesan cheese', quantity: '1/2 cup', measurement: 'cup', recipe: recipes.recipes[1] },
-    { description: 'Caesar dressing', quantity: '1/4 cup', measurement: 'cup', recipe: recipes.recipes[1] },
+    { description: 'Chicken breasts', quantity: '2', measurement: 'pieces', recipe: recipes[1] },
+    { description: 'Romaine lettuce', quantity: '1 head', measurement: 'head', recipe: recipes[1] },
+    { description: 'Croutons', quantity: '1 cup', measurement: 'cup', recipe: recipes[1] },
+    { description: 'Parmesan cheese', quantity: '1/2 cup', measurement: 'cup', recipe: recipes[1] },
+    { description: 'Caesar dressing', quantity: '1/4 cup', measurement: 'cup', recipe: recipes[1] },
 ])
 
 # Create ingredients for Vegetarian Stir-Fry
 ingredients_stir_fry = Ingredient.create([
-    { description: 'Tofu', quantity: '250g', measurement: 'grams', recipe: recipe: recipes.recipes[2] },
-    { description: 'Broccoli', quantity: '1 head', measurement: 'head', recipe: recipe: recipes.recipes[2] },
-    { description: 'Carrots', quantity: '2', measurement: 'pieces', recipe: recipe: recipes.recipes[2] },
-    { description: 'Bell peppers', quantity: '2', measurement: 'pieces', recipe: recipe: recipes.recipes[2] },
-    { description: 'Soy sauce', quantity: '3 tablespoons', measurement: 'tablespoons', recipe: recipe: recipes.recipes[2] },
-    { description: 'Sesame oil', quantity: '1 tablespoon', measurement: 'tablespoon', recipe: recipe: recipes.recipes[2] },
+    { description: 'Tofu', quantity: '250g', measurement: 'grams', recipe: recipe: recipes[2] },
+    { description: 'Broccoli', quantity: '1 head', measurement: 'head', recipe: recipe: recipes[2] },
+    { description: 'Carrots', quantity: '2', measurement: 'pieces', recipe: recipe: recipes[2] },
+    { description: 'Bell peppers', quantity: '2', measurement: 'pieces', recipe: recipe: recipes[2] },
+    { description: 'Soy sauce', quantity: '3 tablespoons', measurement: 'tablespoons', recipe: recipe: recipes[2] },
+    { description: 'Sesame oil', quantity: '1 tablespoon', measurement: 'tablespoon', recipe: recipe: recipes[2] },
 ])
 
 ingredients_chicken_burrito = Ingredient.create([
-    { description: '2 chicken breast', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1 tsp olive oil', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1/2 tsp salt', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1/2 tsp pepper', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1/2 tsp chili powder', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1/2 tsp cumin', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1 tsp garlic powder', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1 tsp paprika', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: 'Squeeze of half a lime', quantity: '', measurement: '', recipe: recipes.recipes[3]}, 
-    { description: '3 tbsp light mayo', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1 tbsp hot sauce', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1/4 tsp chili powder', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1/4 tsp garlic powder', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: 'Squeeze of half a lime', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '2 large tortillas', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1/4 cup low fat cheese', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1/2 cup shredded lettuce', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1 tomato', quantity: '', measurement: '', recipe: recipes.recipes[3] },
-    { description: '1 small red onion', quantity: '', measurement: '', recipe: recipes.recipes[3] }
+    { description: '2 chicken breast', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1 tsp olive oil', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1/2 tsp salt', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1/2 tsp pepper', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1/2 tsp chili powder', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1/2 tsp cumin', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1 tsp garlic powder', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1 tsp paprika', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: 'Squeeze of half a lime', quantity: '', measurement: '', recipe: recipes[3]}, 
+    { description: '3 tbsp light mayo', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1 tbsp hot sauce', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1/4 tsp chili powder', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1/4 tsp garlic powder', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: 'Squeeze of half a lime', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '2 large tortillas', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1/4 cup low fat cheese', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1/2 cup shredded lettuce', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1 tomato', quantity: '', measurement: '', recipe: recipes[3] },
+    { description: '1 small red onion', quantity: '', measurement: '', recipe: recipes[3] }
 ])
 
 
 ingredients_philly_cheesesteak = Ingredient.create([
-    { description: '2 cups water', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 tsp salt', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 & 1/4 cup any pasta', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 tsp olive oil', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 small onion', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 green bell pepper', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 cup mushrooms', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 tbsp minced garlic', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 cup lean ground beef', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 tsp salt', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 tsp pepper', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 tsp paprika', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1 tsp chili powder', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1/4 cup light cream cheese', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1/3 cup fat free greek yogurt', quantity: '', measurement: '', recipe: recipes.recipes[4] },
-    { description: '1/3 cup light mozzarella cheese', quantity: '', measurement: '', recipe: recipes.recipes[4] }
+    { description: '2 cups water', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 tsp salt', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 & 1/4 cup any pasta', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 tsp olive oil', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 small onion', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 green bell pepper', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 cup mushrooms', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 tbsp minced garlic', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 cup lean ground beef', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 tsp salt', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 tsp pepper', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 tsp paprika', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1 tsp chili powder', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1/4 cup light cream cheese', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1/3 cup fat free greek yogurt', quantity: '', measurement: '', recipe: recipes[4] },
+    { description: '1/3 cup light mozzarella cheese', quantity: '', measurement: '', recipe: recipes[4] }
 ])
 
 ingredients_banana_oats = Ingredient.create([
-    { description: '1/3 cup rolled oats', quantity: '', measurement: '', recipe: recipes.recipes[5] },
-    { description: '1/2 cup fat free greek yogurt', quantity: '', measurement: '', recipe: recipes.recipes[5] },
-    { description: '1/2 mashed banana', quantity: '', measurement: '', recipe: recipes.recipes[5] },
-    { description: '1/2 tsp cinnamon', quantity: '', measurement: '', recipe: recipes.recipes[5] },
-    { description: '1/4 tsp vanilla extract', quantity: '', measurement: '', recipe: recipes.recipes[5] },
-    { description: '1 tbsp any sweetener', quantity: '', measurement: '', recipe: recipes.recipes[5] },
-    { description: '1 scoop vanilla protein powder', quantity: '', measurement: '', recipe: recipes.recipes[5] }
+    { description: '1/3 cup rolled oats', quantity: '', measurement: '', recipe: recipes[5] },
+    { description: '1/2 cup fat free greek yogurt', quantity: '', measurement: '', recipe: recipes[5] },
+    { description: '1/2 mashed banana', quantity: '', measurement: '', recipe: recipes[5] },
+    { description: '1/2 tsp cinnamon', quantity: '', measurement: '', recipe: recipes[5] },
+    { description: '1/4 tsp vanilla extract', quantity: '', measurement: '', recipe: recipes[5] },
+    { description: '1 tbsp any sweetener', quantity: '', measurement: '', recipe: recipes[5] },
+    { description: '1 scoop vanilla protein powder', quantity: '', measurement: '', recipe: recipes[5] }
 ])
 
 ingredients_cheesecake_oats = Ingredient.create([
-    { description: '1/3 cup rolled oats', quantity: '', measurement: '', recipe: recipes.recipes[6] },
-    { description: '1/2 cup fat free greek yogurt, plain', quantity: '', measurement: '', recipe: recipes.recipes[6] },
-    { description: '1/4 cup any milk', quantity: '', measurement: '', recipe: recipes.recipes[6] },
-    { description: '1 tbsp light cream cheese', quantity: '', measurement: '', recipe: recipes.recipes[6] },
-    { description: '1/4 tsp vanilla extract', quantity: '', measurement: '', recipe: recipes.recipes[6] },
-    { description: '1 tbsp any sweetener', quantity: '', measurement: '', recipe: recipes.recipes[6] },
-    { description: '1 scoop vanilla protein powder', quantity: '', measurement: '', recipe: recipes.recipes[6] },
-    { description: '1/8 tsp salt)', quantity: '', measurement: '', recipe: recipes.recipes[6] },
-    { description: '1 cup frozen raspberries', quantity: '', measurement: '', recipe: recipes.recipes[6] },
-    { description: '1 tbsp honey', quantity: '', measurement: '', recipe: recipes.recipes[6] },
-    { description: '2 tspn granola/cereal', quantity: '', measurement: '', recipe: recipes.recipes[6] }
+    { description: '1/3 cup rolled oats', quantity: '', measurement: '', recipe: recipes[6] },
+    { description: '1/2 cup fat free greek yogurt, plain', quantity: '', measurement: '', recipe: recipes[6] },
+    { description: '1/4 cup any milk', quantity: '', measurement: '', recipe: recipes[6] },
+    { description: '1 tbsp light cream cheese', quantity: '', measurement: '', recipe: recipes[6] },
+    { description: '1/4 tsp vanilla extract', quantity: '', measurement: '', recipe: recipes[6] },
+    { description: '1 tbsp any sweetener', quantity: '', measurement: '', recipe: recipes[6] },
+    { description: '1 scoop vanilla protein powder', quantity: '', measurement: '', recipe: recipes[6] },
+    { description: '1/8 tsp salt)', quantity: '', measurement: '', recipe: recipes[6] },
+    { description: '1 cup frozen raspberries', quantity: '', measurement: '', recipe: recipes[6] },
+    { description: '1 tbsp honey', quantity: '', measurement: '', recipe: recipes[6] },
+    { description: '2 tspn granola/cereal', quantity: '', measurement: '', recipe: recipes[6] }
 ])
 
 ingredients_pancakes = Ingredient.create([
-    { description: '1/2 cup rolled oats', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1/4 cup milk', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1/4 cup egg whites', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1 tbsp light cream cheese', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1/2 tsp baking powder', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1/4 tsp baking soda', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '2 tbsp low calorie maple syrup', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1 scoop vanilla protein powder', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1 tsp olive oil', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1/3 cup frozen blueberries', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1/2 tsp honey', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1/3 cup fat free greek yogurt, plain', quantity: '', measurement: '', recipe: recipes.recipes[7] },
-    { description: '1/2 scoop vanilla protein powder', quantity: '', measurement: '', recipe: recipes.recipes[7] }
+    { description: '1/2 cup rolled oats', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1/4 cup milk', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1/4 cup egg whites', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1 tbsp light cream cheese', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1/2 tsp baking powder', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1/4 tsp baking soda', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '2 tbsp low calorie maple syrup', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1 scoop vanilla protein powder', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1 tsp olive oil', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1/3 cup frozen blueberries', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1/2 tsp honey', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1/3 cup fat free greek yogurt, plain', quantity: '', measurement: '', recipe: recipes[7] },
+    { description: '1/2 scoop vanilla protein powder', quantity: '', measurement: '', recipe: recipes[7] }
 ])
 
 
@@ -233,8 +233,8 @@ puts 'Recipes and ingredients have been created successfully!'
 
 # # Create likes
 # likes = Like.create([
-#   { user: existing_user, record: recipes.recipes[0] },
-#   { user: existing_user, record: recipes.recipes[1] },
+#   { user: existing_user, record: recipes[0] },
+#   { user: existing_user, record: recipes[1] },
 #   # Add more likes as needed
 # ])
 
