@@ -8,7 +8,7 @@ class Comment < ApplicationRecord
 
   has_noticed_notifications
 
-  has_rich_text :body
+  # has_rich_text :body
 
   validates :body, presence: true
 
