@@ -4,8 +4,8 @@ class Recipe < ApplicationRecord
     accepts_nested_attributes_for :ingredients, 
         reject_if: :all_blank, allow_destroy: true
     has_one_attached :image
-    # has_rich_text :content 
-    validates :content, presence: true
+    has_rich_text :content 
+    validates :body, presence: true
     has_many :comments, as: :commentable
     has_many :likes, as: :record
 
