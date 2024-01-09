@@ -3,9 +3,13 @@
     <strong class="text-xs dark:text-gray-300"><%= link_to recipe.user.full_name, user_path(recipe.user) %></strong>
     <p class="text-xs text-gray-800 dark:text-gray-300 justify-self-end"><%= time_ago_in_words(recipe.created_at) %> ago</p>
   </div>
-
-  <div class="text-gray-600 font-semibold dark:text-gray-600 my-3 break-words"><%= link_to recipe.name, recipe %></div>
-
+  
+  <div class="flex justify-between">
+    <div class="text-gray-600 font-semibold dark:text-gray-600 my-3 break-words"><%= link_to recipe.name, recipe %></div>
+    <div class=" border-4 rounded-full border-green-400 overflow-visible h-52 w-52 text-xs px-4 py-4 "> 
+      50G protein
+    </div>
+  </div >
   <div class='flex self-center mb-2'>
     <%= image_tag(recipe.image.variant(resize_to_limit: [300, 300])) if recipe.image.attached? %>   
   </div>
