@@ -1,4 +1,4 @@
-<div class="flex flex-col min-w-[350px] overflow-scroll bg-white p-2 mr-4 shadow-md dark:bg-dm-2 dark:shad rounded-[8px] duration-500 my-3 py-3 px-4">
+<div class="flex flex-col gap-2 min-w-[350px]  bg-white p-2 mr-4 shadow-md dark:bg-dm-2 dark:shad rounded-[8px] duration-500 my-3 py-3 px-4">
   <div class="flex justify-between">
     <strong class="text-xs dark:text-gray-300"><%= link_to recipe.user.full_name, user_path(recipe.user) %></strong>
     <p class="text-xs text-gray-800 dark:text-gray-300 justify-self-end"><%= time_ago_in_words(recipe.created_at) %> ago</p>
@@ -11,7 +11,7 @@
     </div>
   </div >
   <div class='flex self-center mb-2'>
-    <%= image_tag(recipe.image.variant(resize_to_limit: [300, 300])) if recipe.image.attached? %>   
+    <%= image_tag(recipe.image.variant(resize_to_limit: [400, 400])) if recipe.image.attached? %>   
   </div>
 
   <div class="flex justify-evenly align-bottom mt-4">
