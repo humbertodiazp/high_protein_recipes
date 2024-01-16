@@ -52,7 +52,7 @@ module HighProteinRecipes
 
     # config.action_controller.default_protect_from_forgery = true
     config.assets.enabled = true
-    config.assets.paths << Rails.root.join("app", "assets", "stylesheets")
+    config.assets.paths << Rails.root.join("app", "assets", "stylesheets", "images")
     
     # # Include the authenticity token in remote forms.
     config.action_view.embed_authenticity_token_in_remote_forms = true
