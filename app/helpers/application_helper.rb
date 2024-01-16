@@ -21,7 +21,7 @@ module ApplicationHelper
     end
 
     def right_content
-         'px-5 my-0 md:my-4' 
+         'px-10 my-0 md:my-4' 
     end
 
     def grid_layout
